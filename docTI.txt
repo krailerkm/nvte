@@ -1,0 +1,2085 @@
+**************************** Page 1****************************
+
+  Network Vulnerability Scanning Report Mon, 26 Mar 2018 09:15:05 +07 10.20.30.0/27, 11.22.33.0/24 
+
+  Table Of Contents 
+
+  Vulnerabilities By Plugin 
+
+  86947 (1) - VMware ESXi 5.5 < Build 3029944 OpenSLP RCE (VMSA-2015-0007) 
+
+  88906 (1) - ESXi 5.5 < Build 3568722 / 6.0 < Build 3568940 glibc DNS Resolver RCE (VMSA- 2016-0002) (remote check) 
+
+  73917 (1) - ESXi 5.5 < Build 1746974 / 5.5 Update 1 < Build 1746018 OpenSSL Library Multiple Vulnerabilities (remote check) (Heartbleed) 
+
+  81085 (1) - ESXi 5.5 < Build 2352327 Multiple Vulnerabilities (remote check) (POODLE) 
+
+  87676 (1) - VMware ESXi Multiple OpenSSL Vulnerabilities (VMSA-2014-0004) (Heartbleed) 
+
+  99129 (1) - ESXi 5.5 < Build 5230635 Multiple Vulnerabilities (VMSA-2017-0006) (remote check) 
+
+  105486 (1) - ESXi 5.5 / 6.0 / 6.5 / Multiple Vulnerabilities (VMSA-2017-0021) (VMSA-2018-0002) (Spectre) (remote check) 
+
+  42873 (2) - SSL Medium Strength Cipher Suites Supported 
+
+  20007 (1) - SSL Version 2 and 3 Protocol Detection 
+
+  35291 (1) - SSL Certificate Signed Using Weak Hashing Algorithm
+
+  
+
+
+**************************** Page 2****************************
+
+  51192 (1) - SSL Certificate Cannot Be Trusted 
+
+  71774 (1) - ESXi 5.5 < Build 1474526 File Descriptors Privilege Escalation (remote check) 
+
+  73412 (1) - OpenSSL Heartbeat Information Disclosure (Heartbleed) 
+
+  74470 (1) - ESXi 5.5 < Build 1881737 OpenSSL Library Multiple Vulnerabilities (remote check) 
+
+  77200 (1) - OpenSSL 'ChangeCipherSpec' MiTM Vulnerability 
+
+  78108 (1) - ESXi 5.5 < Build 1980513 glibc Library Multiple Vulnerabilities (remote check) 
+
+  78479 (1) - SSLv3 Padding Oracle On Downgraded Legacy Encryption Vulnerability (POODLE) 
+
+  83781 (1) - ESXi 5.5 < Build 1623387 Multiple Vulnerabilities (remote check) 
+
+  87674 (1) - VMware ESX / ESXi Multiple Vulnerabilities (VMSA-2014-0002) 
+
+  87677 (1) - VMware ESXi Tools Guest OS Privilege Escalation (VMSA-2014-0005) 
+
+  87678 (1) - VMware ESXi Multiple OpenSSL Vulnerabilities (VMSA-2014-0006) 
+
+  87679 (1) - VMware ESXi Multiple DoS (VMSA-2014-0008) 
+
+  87942 (1) - ESXi 5.5 < Build 3248547 Shared Folders (HGFS) Guest Privilege Escalation (VMSA- 2016-0001) (remote check) 
+
+  92949 (1) - ESXi 5.0 / 5.1 / 5.5 / 6.0 Multiple Vulnerabilities (VMSA-2016-0010) (remote check) 
+
+  103375 (1) - ESXi 5.5 < Build 6480267 RPC NULL Pointer Dereference Vulnerability (VMSA- 2017-0015) (remote check) 
+
+  Remediations 
+
+  Suggested Remediations 
+
+  Vulnerabilities By Plugin 
+
+  [-] Collapse All 
+
+  [+] Expand All 
+
+  86947 (1) - VMware ESXi 5.5 < Build 3029944 OpenSLP RCE (VMSA-2015-0007) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is affected by a remote code execution vulnerability. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.5 prior to build 3029944. It is, therefore, affected by a remote code execution vulnerability due to a double-free error in the SLPDProcessMessage() function in OpenSLP. An unauthenticated, remote attacker can exploit this, via a crafted package, to execute arbitrary code or cause a denial of service condition. 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2015-0007
+
+  
+
+
+**************************** Page 3****************************
+
+  http://www.zerodayinitiative.com/advisories/ZDI-15-455/ 
+
+  Solution 
+
+  Apply patch ESXi550-201509101-SG for ESXi 5.5. 
+
+  Risk Factor 
+
+  Critical 
+
+  CVSS Base Score 
+
+  10.0 (CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:C) 
+
+  CVSS Temporal Score 
+
+  7.0 (CVSS2#E:U/RL:OF/RC:UR) 
+
+  References 
+
+  BID 76635 
+
+  CVE-2015-5177 
+
+  XREF OSVDB:126300 
+
+  XREF VMSA:2015-0007 
+
+  XREF ZDI:ZDI-15-455 
+
+  Plugin Information: 
+
+  Publication date: 2015/11/19, Modification date: 2015/12/18 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 3029944 
+
+  88906 (1) - ESXi 5.5 < Build 3568722 / 6.0 < Build 3568940 glibc DNS Resolver RCE (VMSA-2016-0002) (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is affected by a remote code execution vulnerability. 
+
+  Description 
+
+  The remote VMware ESXi host is 5.5 prior to build 3568722 or 6.0 prior to build 3568940. It is, therefore, affected by a stack-based buffer overflow condition in the GNU C Library (glibc) DNS client-side resolver due to improper validation of user-supplied input when looking up names via the getaddrinfo() function. An attacker can exploit this to execute arbitrary code by using an attacker-controlled domain name, an attacker-controlled DNS server, or through a man-in-the-middle attack. 
+
+  See Also 
+
+  http://www.vmware.com/security/advisories/VMSA-2016-0002.html 
+
+  http://kb.vmware.com/kb/2144353 
+
+  http://kb.vmware.com/kb/2144357 
+
+  http://kb.vmware.com/kb/2144057 
+
+  http://kb.vmware.com/kb/2144054
+
+  
+
+
+**************************** Page 4****************************
+
+  http://www.nessus.org/u?8bdae0a0 
+
+  https://sourceware.org/bugzilla/show_bug.cgi?id=18665 
+
+  Solution 
+
+  Apply the appropriate patch as referenced in the vendor advisory. 
+
+  Risk Factor 
+
+  Critical 
+
+  CVSS Base Score 
+
+  10.0 (CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:C) 
+
+  CVSS Temporal Score 
+
+  8.3 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  STIG Severity 
+
+  I 
+
+  References 
+
+  BID 83265 
+
+  CVE-2015-7547 
+
+  XREF OSVDB:134584 
+
+  XREF VMSA:2016-0002 
+
+  XREF IAVB:2016-B-0036 
+
+  XREF IAVB:2016-B-0037 
+
+  XREF CERT:457759 
+
+  XREF EDB-ID:39454 
+
+  Plugin Information: 
+
+  Publication date: 2016/02/23, Modification date: 2016/08/16 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : 5.5 Installed build : 1331820 Fixed build : 3568722 
+
+  73917 (1) - ESXi 5.5 < Build 1746974 / 5.5 Update 1 < Build 1746018 OpenSSL Library Multiple Vulnerabilities (remote check) (Heartbleed) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is potentially affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is 5.5 prior to build 1746974 or 5.5 Update 1 prior to build 1746018. It is, therefore, potentially affected by the following vulnerabilities in the OpenSSL library : 
+
+  - An error exists related to the implementation of the Elliptic Curve Digital Signature Algorithm (ECDSA) that could allow nonce disclosure via the 'FLUSH+RELOAD' cache side-channel attack. (CVE-2014-0076)
+
+  
+
+
+**************************** Page 5****************************
+
+  - An out-of-bounds read error, known as the 'Heartbleed Bug', exists related to handling TLS heartbeat extensions that could allow an attacker to obtain sensitive information such as primary key material, secondary key material, and other protected content. (CVE-2014-0160 
+
+  See Also 
+
+  http://www.nessus.org/u?720c816b 
+
+  http://www.heartbleed.com 
+
+  https://eprint.iacr.org/2014/140 
+
+  https://www.openssl.org/news/vulnerabilities.html#2014-0160 
+
+  https://www.openssl.org/news/secadv/20140407.txt 
+
+  Solution 
+
+  Apply patch ESXi550-201404420 for ESXi 5.5 or ESXi550-201404401 for ESXi 5.5 Update 1. 
+
+  Risk Factor 
+
+  High 
+
+  CVSS Base Score 
+
+  9.4 (CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:N) 
+
+  CVSS Temporal Score 
+
+  7.4 (CVSS2#E:POC/RL:OF/RC:C) 
+
+  References 
+
+  BID 66363 
+
+  BID 66690 
+
+  CVE-2014-0076 
+
+  CVE-2014-0160 
+
+  XREF OSVDB:104810 
+
+  XREF OSVDB:105465 
+
+  XREF VMSA:2014-0004 
+
+  XREF CERT:720951 
+
+  XREF EDB-ID:32745 
+
+  XREF EDB-ID:32764 
+
+  XREF EDB-ID:32791 
+
+  XREF EDB-ID:32998 
+
+  Exploitable with 
+
+  Core Impact (true) 
+
+  Plugin Information: 
+
+  Publication date: 2014/05/08, Modification date: 2017/06/12 
+
+  Hosts
+
+  
+
+
+**************************** Page 6****************************
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 1746974 
+
+  81085 (1) - ESXi 5.5 < Build 2352327 Multiple Vulnerabilities (remote check) (POODLE) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.5 prior to build 2352327. It is, therefore, affected by the following vulnerabilities : 
+
+  - An error exists related to DTLS SRTP extension handling and specially crafted handshake messages that can allow denial of service attacks via memory leaks. (CVE-2014-3513) 
+
+  - An error exists related to the way SSL 3.0 handles padding bytes when decrypting messages encrypted using block ciphers in cipher block chaining (CBC) mode. A man-in-the-middle attacker can decrypt a selected byte of a cipher text in as few as 256 tries if they are able to force a victim application to repeatedly send the same data over newly created SSL 3.0 connections. This is also known as the 'POODLE' issue. (CVE-2014-3566) 
+
+  - An error exists related to session ticket handling that can allow denial of service attacks via memory leaks. (CVE-2014-3567) 
+
+  - An error exists related to the build configuration process and the 'no-ssl3' build option that allows servers and clients to process insecure SSL 3.0 handshake messages. (CVE-2014-3568) 
+
+  - A denial of service vulnerability in libxml2 due to entity expansion even when entity substitution is disabled. A remote attacker, using a crafted XML document containing larger number of nested entity references, can cause the consumption of CPU resources. (CVE-2014-3660) 
+
+  - An unspecified privilege escalation vulnerability. (CVE-2014-8370) 
+
+  - An unspecified denial of service vulnerability due to an input validation issue in the VMware Authorization process (vmware-authd). (CVE-2015-1044) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2015-0001.html 
+
+  https://www.imperialviolet.org/2014/10/14/poodle.html 
+
+  https://www.openssl.org/~bodo/ssl-poodle.pdf 
+
+  https://tools.ietf.org/html/draft-ietf-tls-downgrade-scsv-00 
+
+  Solution 
+
+  Apply patch ESXi550-201403102-SG and ESXi550-201501101-SG for ESXi 5.5. 
+
+  Risk Factor 
+
+  High 
+
+  CVSS Base Score
+
+  
+
+
+**************************** Page 7****************************
+
+  7.1 (CVSS2#AV:N/AC:M/Au:N/C:N/I:N/A:C) 
+
+  CVSS Temporal Score 
+
+  6.2 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 70574 
+
+  BID 70584 
+
+  BID 70585 
+
+  BID 70586 
+
+  BID 70644 
+
+  BID 72336 
+
+  BID 72338 
+
+  CVE-2014-3513 
+
+  CVE-2014-3566 
+
+  CVE-2014-3567 
+
+  CVE-2014-3568 
+
+  CVE-2014-3660 
+
+  CVE-2014-8370 
+
+  CVE-2015-1044 
+
+  XREF OSVDB:113251 
+
+  XREF OSVDB:113373 
+
+  XREF OSVDB:113374 
+
+  XREF OSVDB:113377 
+
+  XREF OSVDB:113389 
+
+  XREF CERT:577193 
+
+  XREF VMSA:2015-0001 
+
+  Plugin Information: 
+
+  Publication date: 2015/01/29, Modification date: 2016/05/24 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 2352327 
+
+  87676 (1) - VMware ESXi Multiple OpenSSL Vulnerabilities (VMSA-2014-0004) (Heartbleed)
+
+  
+
+
+**************************** Page 8****************************
+
+  Synopsis 
+
+  The remote VMware ESXi host is missing a security-related patch. 
+
+  Description 
+
+  The remote VMware ESXi host is affected by multiple vulnerabilities in the OpenSSL third-party library : 
+
+  - A flaw exist in the Elliptic Curve Digital Signature Algorithm (ECDSA) implementation due to a failure to insure that certain swap operations have a constant-time behavior. An attacker can exploit this to obtain the ECDSA nonces by using a FLUSH+RELOAD cache side-channel attack. (CVE-2014-0076) 
+
+  - An out-of-bounds read error, known as Heartbleed, exists in the TLS/DTLS implementation due to improper handling of TLS heartbeat extension packets. A remote attacker, using crafted packets, can trigger a buffer over- read, resulting in the disclosure of up to 64KB of process memory, which contains sensitive information such as primary key material, secondary key material, and other protected content. (CVE-2014-0160) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0004 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000244.html 
+
+  http://www.heartbleed.com 
+
+  http://eprint.iacr.org/2014/140 
+
+  http://www.openssl.org/news/vulnerabilities.html#2014-0160 
+
+  Solution 
+
+  Apply the appropriate patch according to the vendor advisory that pertains to ESXi version 5.5 / 5.5 U1. Additional remediation steps may also need to be performed after applying the patch. 
+
+  Risk Factor 
+
+  High 
+
+  CVSS Base Score 
+
+  9.4 (CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:N) 
+
+  CVSS Temporal Score 
+
+  7.4 (CVSS2#E:POC/RL:OF/RC:C) 
+
+  References 
+
+  BID 66363 
+
+  BID 66690 
+
+  CVE-2014-0076 
+
+  CVE-2014-0160 
+
+  XREF OSVDB:104810 
+
+  XREF OSVDB:105465 
+
+  XREF VMSA:2014-0004 
+
+  XREF CERT:720951 
+
+  XREF EDB-ID:32745 
+
+  XREF EDB-ID:32764
+
+  
+
+
+**************************** Page 9****************************
+
+  XREF EDB-ID:32791 
+
+  XREF EDB-ID:32998 
+
+  Exploitable with 
+
+  Core Impact (true) 
+
+  Plugin Information: 
+
+  Publication date: 2015/12/30, Modification date: 2016/05/19 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Version : ESXi 5.5 Installed build : 1331820 Fixed build : 1746018 / 1746974 
+
+  99129 (1) - ESXi 5.5 < Build 5230635 Multiple Vulnerabilities (VMSA-2017-0006) (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The version of the remote VMware ESXi 5.5 host is prior to build 5230635. It is, therefore, affected by multiple vulnerabilities : 
+
+  - An unspecified flaw exists in memory initialization that allows an attacker on the guest to execute arbitrary code on the host. (CVE-2017-4904) 
+
+  - An unspecified flaw exists in memory initialization that allows the disclosure of sensitive information. (CVE-2017-4905) 
+
+  See Also 
+
+  http://www.vmware.com/security/advisories/VMSA-2017-0006.html 
+
+  Solution 
+
+  Apply patch ESXi550-201703401-SG according to the vendor advisory. 
+
+  Risk Factor 
+
+  High 
+
+  CVSS v3.0 Base Score 
+
+  9.6 (CVSS:3.0/AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H) 
+
+  CVSS Base Score 
+
+  8.3 (CVSS2#AV:A/AC:L/Au:N/C:C/I:C/A:C) 
+
+  CVSS Temporal Score 
+
+  6.9 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  STIG Severity 
+
+  I 
+
+  References 
+
+  BID 97164 
+
+  BID 97165
+
+  
+
+
+**************************** Page 10****************************
+
+  CVE-2017-4904 
+
+  CVE-2017-4905 
+
+  XREF OSVDB:154021 
+
+  XREF OSVDB:154022 
+
+  XREF VMSA:2017-0006 
+
+  XREF IAVB:2017-B-0036 
+
+  Plugin Information: 
+
+  Publication date: 2017/03/31, Modification date: 2017/08/16 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 5230635 
+
+  105486 (1) - ESXi 5.5 / 6.0 / 6.5 / Multiple Vulnerabilities (VMSA-2017-0021) (VMSA-2018-0002) (Spectre) (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.5, 6.0, or 6.5 and is missing a security patch. It is, therefore, affected by multiple vulnerabilities that can allow code execution in a virtual machine via the authenticated VNC session as well as cause information disclosure from one virtual machine to another virtual machine on the same host. 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2017-0021.html 
+
+  https://www.talosintelligence.com/vulnerability_reports/TALOS-2017-0369 
+
+  https://www.vmware.com/us/security/advisories/VMSA-2018-0002.html 
+
+  https://meltdownattack.com/ 
+
+  Solution 
+
+  Apply the appropriate patch as referenced in the vendor advisory. 
+
+  Risk Factor 
+
+  High 
+
+  CVSS v3.0 Base Score 
+
+  8.8 (CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H) 
+
+  CVSS v3.0 Temporal Score 
+
+  8.3 (CVSS:3.0/E:P/RL:U/RC:X) 
+
+  CVSS Base Score 
+
+  9.3 (CVSS2#AV:N/AC:M/Au:N/C:C/I:C/A:C) 
+
+  CVSS Temporal Score 
+
+  8.4 (CVSS2#E:POC/RL:U/RC:ND)
+
+  
+
+
+**************************** Page 11****************************
+
+  STIG Severity
+
+  I
+
+  References 
+
+  BID 102238 
+
+  BID 102241 
+
+  BID 102376 
+
+  BID 102371 
+
+  CVE-2017-4940 
+
+  CVE-2017-4941 
+
+  CVE-2017-5753 
+
+  CVE-2017-5715 
+
+  XREF OSVDB:171160 
+
+  XREF OSVDB:171223 
+
+  XREF OSVDB:171897 
+
+  XREF VMSA:2017-0021 
+
+  XREF IAVA:2018-A-0020 
+
+  XREF IAVB:2018-B-0004 
+
+  XREF IAVB:2018-B-0005 
+
+  XREF IAVB:2018-B-0006 
+
+  XREF VMSA:2018-0002 
+
+  Plugin Information: 
+
+  Publication date: 2017/12/29, Modification date: 2018/01/15 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : 5.5 Installed build : 1331820 Fixed build : 6480324 / 6480267 (security-only fix) 
+
+  42873 (2) - SSL Medium Strength Cipher Suites Supported 
+
+  Synopsis 
+
+  The remote service supports the use of medium strength SSL ciphers. 
+
+  Description 
+
+  The remote host supports the use of SSL ciphers that offer medium strength encryption. Nessus regards medium strength as any encryption that uses key lengths at least 64 bits and less than 112 bits, or else that uses the 3DES encryption suite.
+
+  
+
+
+**************************** Page 12****************************
+
+  Note that it is considerably easier to circumvent medium strength encryption if the attacker is on the same physical network. 
+
+  See Also 
+
+  https://www.openssl.org/blog/blog/2016/08/24/sweet32/ 
+
+  Solution 
+
+  Reconfigure the affected application if possible to avoid use of medium strength ciphers. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  5.3 (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N) 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:P/I:N/A:N) 
+
+  Plugin Information: 
+
+  Publication date: 2009/11/23, Modification date: 2017/09/01 
+
+  Hosts 
+
+  10.20.30.10 (tcp/443) 
+
+  Here is the list of medium strength SSL ciphers supported by the remote server : 
+
+  Medium Strength Ciphers (> 64-bit and < 112-bit key, or 3DES) 
+
+  ECDHE-RSA-DES-CBC3-SHA Kx=ECDH Au=RSA Enc=3DES-CBC(168) Mac=SHA1 DES-CBC3-SHA Kx=RSA Au=RSA Enc=3DES-CBC(168) Mac=SHA1 
+
+  The fields above are : 
+
+  {OpenSSL ciphername} Kx={key exchange} Au={authentication} Enc={symmetric encryption method} Mac={message authentication code} {export flag} 
+
+  10.20.30.30 (tcp/443) 
+
+  Here is the list of medium strength SSL ciphers supported by the remote server : 
+
+  Medium Strength Ciphers (> 64-bit and < 112-bit key, or 3DES) 
+
+  ECDHE-RSA-DES-CBC3-SHA Kx=ECDH Au=RSA Enc=3DES-CBC(168) Mac=SHA1 DES-CBC3-SHA Kx=RSA Au=RSA Enc=3DES-CBC(168) Mac=SHA1 
+
+  The fields above are : 
+
+  {OpenSSL ciphername} Kx={key exchange} Au={authentication} Enc={symmetric encryption method} Mac={message authentication code} {export flag} 
+
+  20007 (1) - SSL Version 2 and 3 Protocol Detection
+
+  
+
+
+**************************** Page 13****************************
+
+  Synopsis 
+
+  The remote service encrypts traffic using a protocol with known weaknesses. 
+
+  Description 
+
+  The remote service accepts connections encrypted using SSL 2.0 and/or SSL 3.0. These versions of SSL are affected by several cryptographic flaws, including: 
+
+  - An insecure padding scheme with CBC ciphers. 
+
+  - Insecure session renegotiation and resumption schemes. 
+
+  An attacker can exploit these flaws to conduct man-in-the-middle attacks or to decrypt communications between the affected service and clients. 
+
+  Although SSL/TLS has a secure means for choosing the highest supported version of the protocol (so that these versions will be used only if the client or server support nothing better), many web browsers implement this in an unsafe way that allows an attacker to downgrade a connection (such as in POODLE). Therefore, it is recommended that these protocols be disabled entirely. 
+
+  NIST has determined that SSL 3.0 is no longer acceptable for secure communications. As of the date of enforcement found in PCI DSS v3.1, any version of SSL will not meet the PCI SSC's definition of 'strong cryptography'. 
+
+  See Also 
+
+  https://www.schneier.com/academic/paperfiles/paper-ssl.pdf 
+
+  http://www.nessus.org/u?0bb7b67d 
+
+  http://www.nessus.org/u?247c4540 
+
+  https://www.openssl.org/~bodo/ssl-poodle.pdf 
+
+  http://www.nessus.org/u?5d15ba70 
+
+  https://www.imperialviolet.org/2014/10/14/poodle.html 
+
+  https://tools.ietf.org/html/rfc7507 
+
+  https://tools.ietf.org/html/rfc7568 
+
+  Solution 
+
+  Consult the application's documentation to disable SSL 2.0 and 3.0. Use TLS 1.1 (with approved cipher suites) or higher instead. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  7.5 (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N) 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:P/I:N/A:N) 
+
+  Plugin Information: 
+
+  Publication date: 2005/10/12, Modification date: 2017/07/11 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443)
+
+  
+
+
+**************************** Page 14****************************
+
+  - SSLv3 is enabled and the server supports at least one cipher. 
+
+  35291 (1) - SSL Certificate Signed Using Weak Hashing Algorithm 
+
+  Synopsis 
+
+  An SSL certificate in the certificate chain has been signed using a weak hash algorithm. 
+
+  Description 
+
+  The remote service uses an SSL certificate chain that has been signed using a cryptographically weak hashing algorithm (e.g. MD2, MD4, MD5, or SHA1). These signature algorithms are known to be vulnerable to collision attacks. An attacker can exploit this to generate another certificate with the same digital signature, allowing an attacker to masquerade as the affected service. 
+
+  Note that this plugin reports all SSL certificate chains signed with SHA-1 that expire after January 1, 2017 as vulnerable. This is in accordance with Google's gradual sunsetting of the SHA-1 cryptographic hash algorithm. 
+
+  Note that certificates in the chain that are contained in the Nessus CA database (known_CA.inc) have been ignored. 
+
+  See Also 
+
+  https://tools.ietf.org/html/rfc3279 
+
+  http://www.nessus.org/u?e120eea1 
+
+  http://technet.microsoft.com/en-us/security/advisory/961509 
+
+  Solution 
+
+  Contact the Certificate Authority to have the certificate reissued. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:N/I:P/A:N) 
+
+  CVSS Temporal Score 
+
+  4.3 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 11849 
+
+  BID 33065 
+
+  CVE-2004-2761 
+
+  XREF OSVDB:45106 
+
+  XREF OSVDB:45108 
+
+  XREF OSVDB:45127 
+
+  XREF CERT:836068 
+
+  XREF CWE:310 
+
+  Plugin Information: 
+
+  Publication date: 2009/01/05, Modification date: 2018/02/20 
+
+  Hosts
+
+  
+
+
+**************************** Page 15****************************
+
+  10.20.30.23 (tcp/443) 
+
+  The following certificates were part of the certificate chain sent by the remote host, but contain hashes that are considered to be weak. 
+
+  |-Subject : C=US/ST=California/L=Palo Alto/O=VMware, Inc/OU=VMware ESX Server Default Certificate/E=ssl-certificates@vmware.com/CN=localhost.localdomain /1.2.840.113549.1.9.2=1348690936,564d7761726520496e632e |-Signature Algorithm : SHA-1 With RSA Encryption |-Valid From : Sep 26 20:22:17 2012 GMT |-Valid To : Mar 27 20:22:17 2024 GMT 
+
+  51192 (1) - SSL Certificate Cannot Be Trusted 
+
+  Synopsis 
+
+  The SSL certificate for this service cannot be trusted. 
+
+  Description 
+
+  The server's X.509 certificate cannot be trusted. This situation can occur in three different ways, in which the chain of trust can be broken, as stated below : 
+
+  - First, the top of the certificate chain sent by the server might not be descended from a known public certificate authority. This can occur either when the top of the chain is an unrecognized, self-signed certificate, or when intermediate certificates are missing that would connect the top of the certificate chain to a known public certificate authority. 
+
+  - Second, the certificate chain may contain a certificate that is not valid at the time of the scan. This can occur either when the scan occurs before one of the certificate's 'notBefore' dates, or after one of the certificate's 'notAfter' dates. 
+
+  - Third, the certificate chain may contain a signature that either didn't match the certificate's information or could not be verified. Bad signatures can be fixed by getting the certificate with the bad signature to be re-signed by its issuer. Signatures that could not be verified are the result of the certificate's issuer using a signing algorithm that Nessus either does not support or does not recognize. 
+
+  If the remote host is a public host in production, any break in the chain makes it more difficult for users to verify the authenticity and identity of the web server. This could make it easier to carry out man-in-the-middle attacks against the remote host. 
+
+  See Also 
+
+  http://www.itu.int/rec/T-REC-X.509/en 
+
+  https://en.wikipedia.org/wiki/X.509 
+
+  Solution 
+
+  Purchase or generate a proper certificate for this service. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  6.5 (CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N) 
+
+  CVSS Base Score 
+
+  6.4 (CVSS2#AV:N/AC:L/Au:N/C:P/I:P/A:N) 
+
+  Plugin Information: 
+
+  Publication date: 2010/12/15, Modification date: 2017/05/18
+
+  
+
+
+**************************** Page 16****************************
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  The following certificate was at the top of the certificate chain sent by the remote host, but it is signed by an unknown certificate authority : 
+
+  |-Subject : C=US/ST=California/L=Palo Alto/O=VMware, Inc/OU=VMware ESX Server Default Certificate/E=ssl-certificates@vmware.com/CN=localhost.localdomain /1.2.840.113549.1.9.2=1348690936,564d7761726520496e632e |-Issuer : O=VMware Installer 
+
+  71774 (1) - ESXi 5.5 < Build 1474526 File Descriptors Privilege Escalation (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by a privilege escalation vulnerability. 
+
+  Description 
+
+  The remote VMware ESXi 5.5 host is affected by an error in the handling of certain Virtual Machine file descriptors. This could allow an unprivileged user with the 'Add Existing Disk' privilege to obtain read and write access to arbitrary files, possibly leading to arbitrary code execution after a host reboot. 
+
+  See Also 
+
+  http://www.nessus.org/u?b9d794c9 
+
+  Solution 
+
+  Apply patch ESXi550-201312101-SG. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  4.4 (CVSS2#AV:L/AC:M/Au:N/C:P/I:P/A:P) 
+
+  CVSS Temporal Score 
+
+  3.8 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 64491 
+
+  CVE-2013-5973 
+
+  XREF OSVDB:101387 
+
+  XREF VMSA:2013-0016 
+
+  Plugin Information: 
+
+  Publication date: 2013/12/31, Modification date: 2017/06/12 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 1474526
+
+  
+
+
+**************************** Page 17****************************
+
+  73412 (1) - OpenSSL Heartbeat Information Disclosure (Heartbleed) 
+
+  Synopsis 
+
+  The remote service is affected by an information disclosure vulnerability. 
+
+  Description 
+
+  Based on its response to a TLS request with a specially crafted heartbeat message (RFC 6520), the remote service appears to be affected by an out-of-bounds read flaw. 
+
+  This flaw could allow a remote attacker to read the contents of up to 64KB of server memory, potentially exposing passwords, private keys, and other sensitive data. 
+
+  See Also 
+
+  http://heartbleed.com/ 
+
+  http://eprint.iacr.org/2014/140 
+
+  http://www.openssl.org/news/vulnerabilities.html#2014-0160 
+
+  https://www.openssl.org/news/secadv/20140407.txt 
+
+  Solution 
+
+  Upgrade to OpenSSL 1.0.1g or later. 
+
+  Alternatively, recompile OpenSSL with the '-DOPENSSL_NO_HEARTBEATS' flag to disable the vulnerable functionality. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:P/I:N/A:N) 
+
+  CVSS Temporal Score 
+
+  4.3 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 66690 
+
+  CVE-2014-0160 
+
+  XREF OSVDB:105465 
+
+  XREF CERT:720951 
+
+  XREF EDB-ID:32745 
+
+  XREF EDB-ID:32764 
+
+  XREF EDB-ID:32791 
+
+  XREF EDB-ID:32998 
+
+  Exploitable with 
+
+  Core Impact (true)Metasploit (true) 
+
+  Plugin Information: 
+
+  Publication date: 2014/04/08, Modification date: 2018/02/20 
+
+  Hosts
+
+  
+
+
+**************************** Page 18****************************
+
+  10.20.30.23 (tcp/443) 
+
+  Nessus was able to read the following memory from the remote service: 
+
+  0x0000: 62 79 4D 00 02 3E 00 1D 00 1C FE FF FF E0 FE FE byM..>.......... 0x0010: FF E1 00 A2 00 A3 C0 80 C0 81 C0 A6 00 AA C0 A7 ................ 0x0020: 00 AB C0 96 C0 90 C0 97 C0 91 CC AD C0 9E C0 A2 ................ 0x0030: 00 9E C0 9F C0 A3 00 9F C0 7C C0 7D CC AA 00 A4 .........|.}.... 0x0040: 00 A5 C0 82 C0 83 00 A0 00 A1 C0 7E C0 7F 00 A6 ...........~.... 0x0050: 00 A7 C0 84 C0 85 C0 AC C0 AE C0 2B C0 AD C0 AF ...........+.... 0x0060: C0 2C C0 72 C0 86 C0 73 C0 87 CC A9 C0 9A C0 9B .,.r...s........ 0x0070: CC AC C0 2F C0 30 C0 76 C0 8A C0 77 C0 8B CC A8 .../.0.v...w.... 0x0080: C0 2D C0 2E C0 74 C0 88 C0 75 C0 89 C0 31 C0 32 .-...t...u...1.2 0x0090: C0 78 C0 8C C0 79 C0 8D C0 AA C0 AB C0 A4 C0 A8 .x...y.......... 0x00A0: 00 A8 C0 A5 C0 A9 00 A9 C0 94 C0 8E C0 95 C0 8F ................ 0x00B0: CC AB 00 AC 00 AD C0 98 C0 92 C0 99 C0 93 CC AE ................ 0x00C0: C0 9C C0 A0 00 9C C0 9D C0 A1 00 9D C0 7A C0 7B .............z.{ 0x00D0: 00 63 00 65 00 11 00 13 00 32 00 38 00 44 00 87 .c.e.....2.8.D.. 0x00E0: 00 12 00 66 00 99 00 8F 00 90 00 91 00 8E 00 14 ...f............ 0x00F0: 00 16 00 33 00 39 00 45 00 88 00 15 00 9A 00 0B ...3.9.E........ 0x0100: 00 0D 00 30 00 36 00 42 00 85 00 0C 00 97 00 0E ...0.6.B........ 0x0110: 00 10 00 31 00 37 00 43 00 86 00 0F 00 98 00 19 ...1.7.C........ 0x0120: 00 17 00 1B 00 34 00 3A 00 46 00 89 00 1A 00 18 .....4.:.F...... 0x0130: 00 9B C0 08 C0 09 C0 0A C0 06 C0 07 C0 12 C0 13 ................ 0x0140: C0 14 C0 10 C0 11 C0 03 C0 04 C0 05 C0 01 C0 02 ................ 0x0150: C0 0D C0 0E C0 0F C0 0B C0 0C C0 15 C0 17 C0 18 ................ 0x0160: C0 19 C0 16 00 29 00 26 00 2A 00 27 00 2B 00 28 .....).&.*.'.+.( 0x0170: 00 23 00 1F 00 22 00 1E 00 25 00 21 00 24 00 20 .#..."...%.!.$. 0x0180: 00 00 00 8B 00 8C 00 8D 00 8A 00 62 00 61 00 60 ...........b.a.` 0x0190: 00 64 00 08 00 06 00 03 00 93 00 94 00 95 00 92 .d.............. 0x01A0: 00 0A 00 2F 00 35 00 41 00 84 00 09 00 07 00 01 .../.5.A........ 0x01B0: 00 02 00 04 00 05 00 96 00 40 00 6A 00 BD 00 C3 .........@.j.... 0x01C0: 00 B2 00 B3 00 2D 00 B4 00 B5 00 67 00 6B 00 BE .....-.....g.k.. 0x01D0: 00 C4 00 3E 00 68 00 BB 00 C1 00 3F 00 69 00 BC ...>.h.....?.i.. 0x01E0: 00 C2 00 6C 00 6D 00 BF 00 C5 C0 23 C0 24 C0 34 ...l.m.....#.$.4 0x01F0: C0 35 C0 37 C0 36 C0 38 C0 39 C0 3A C0 3B C0 33 .5.7.6.8.9.:.;.3 0x0200: C0 27 C0 28 C0 25 C0 26 C0 29 C0 2A 00 81 00 83 .'.(.%.&.).*.... 0x0210: 00 80 00 82 00 AE 00 AF 00 2C 00 B0 00 B1 00 B6 .........,...... 0x0220: 00 B7 00 2E 00 B8 00 B9 00 3C 00 3D 00 BA 00 C0 .........<.=.... 0x0230: 00 3B C0 1C C0 1F C0 22 C0 1B C0 1E C0 21 C0 1A .;.....".....!.. 0x0240: C0 1D C0 20 01 00 00 4F 00 0F 00 01 01 00 0A 00 ... ...O........ 0x0250: 3E 00 3C 00 01 00 02 00 03 00 04 00 05 00 06 00 >.<............. 0x0260: 07 00 08 00 09 00 0A 00 0B 00 0C 00 0D 00 0E 00 ................ 0x0270: 0F 00 10 00 11 00 12 00 13 00 14 00 15 00 16 00 ................ 0x0280: 17 00 18 00 19 00 1A 00 1B 00 1C FF 01 FF 02 00 ................ 0x0290: 0B 00 04 03 00 01 02 53 65 74 3E 3C 6F 62 6A 20 .......Set><obj 0x02A0: 74 79 70 65 3D 22 54 61 73 6B 22 3E 73 65 73 73 type="Task">sess 0x02B0: 69 6F 6E 5B 66 62 32 61 64 62 35 38 2D 31 35 38 ion[fb2adb58-158 0x02C0: 63 2D 65 32 32 31 2D 34 33 66 38 2D 64 37 37 37 c-e221-43f8-d777 0x02D0: 65 33 65 30 66 36 34 62 5D 35 32 65 65 39 31 66 e3e0f64b]52ee91f 0x02E0: 35 2D 37 66 33 30 2D 31 39 61 66 2D 64 36 35 61 5-7f30-19af-d65a 0x02F0: 2D 32 62 33 37 32 62 33 30 30 39 35 39 3C 2F 6F -2b372b300959</o 0x0300: 62 6A 3E 3C 2F 6F 62 6A 65 63 74 53 65 74 3E 3C bj></objectSet>< 0x0310: 2F 73 70 65 63 3E 3C 70 61 72 74 69 61 6C 55 70 /spec><partialUp 0x0320: 64 61 74 65 73 3E 74 72 75 65 3C 2F 70 61 72 74 dates>true</part 0x0330: 69 61 6C 55 70 64 61 74 65 73 3E 3C 2F 43 72 65 ialUpdates></Cre 0x0340: 61 74 65 46 69 6C 74 65 72 3E 0A 3C 2F 73 6F 61 ateFilter>.</soa 0x0350: 70 65 6E 76 3A 42 6F 64 79 3E 0A 3C 2F 73 6F 61 penv:Body>.</soa 0x0360: 70 65 6E 76 3A 45 6E 76 65 6C 6F 70 65 3E 09 C9 penv:Envelope>.. 0x0370: 9C E0 42 DC 8C 28 14 CE 2B 0B 64 35 67 7A B4 B2 ..B..(..+.d5gz.. 0x0380: C1 AF 00 00 00 00 00 00 00 00 00 00 0A 6D 69 64 .............mid 0x0390: 3E 31 37 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E >17</vmid><vmid> 0x03A0: 31 38 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 31 18</vmid><vmid>1
+
+  
+
+
+**************************** Page 19****************************
+
+  0x03B0: 39 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 32 30 9</vmid><vmid>20 0x03C0: 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 32 31 3C </vmid><vmid>21< 0x03D0: 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 32 32 3C 2F /vmid><vmid>22</ 0x03E0: 76 6D 69 64 3E 3C 76 6D 69 64 3E 32 33 3C 2F 76 vmid><vmid>23</v 0x03F0: 6D 69 64 3E 3C 76 6D 69 64 3E 32 34 3C 2F 76 6D mid><vmid>24</vm 0x0400: 69 64 3E 3C 76 6D 69 64 3E 32 35 3C 2F 76 6D 69 id><vmid>25</vmi 0x0410: 64 3E 3C 76 6D 69 64 3E 32 36 3C 2F 76 6D 69 64 d><vmid>26</vmid 0x0420: 3E 3C 76 6D 69 64 3E 32 37 3C 2F 76 6D 69 64 3E ><vmid>27</vmid> 0x0430: 3C 76 6D 69 64 3E 32 38 3C 2F 76 6D 69 64 3E 3C <vmid>28</vmid>< 0x0440: 76 6D 69 64 3E 33 34 3C 2F 76 6D 69 64 3E 3C 76 vmid>34</vmid><v 0x0450: 6D 69 64 3E 33 36 3C 2F 76 6D 69 64 3E 3C 76 6D mid>36</vmid><vm 0x0460: 69 64 3E 34 32 3C 2F 76 6D 69 64 3E 3C 76 6D 69 id>42</vmid><vmi 0x0470: 64 3E 34 34 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 d>44</vmid><vmid 0x0480: 3E 34 36 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E >46</vmid><vmid> 0x0490: 34 38 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 35 48</vmid><vmid>5 0x04A0: 30 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 35 35 0</vmid><vmid>55 0x04B0: 3C 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 36 32 3C </vmid><vmid>62< 0x04C0: 2F 76 6D 69 64 3E 3C 76 6D 69 64 3E 36 34 3C 2F /vmid><vmid>64</ 0x04D0: 76 6D 69 64 3E 3C 76 6D 69 64 3E 36 36 3C 2F 76 vmid><vmid>66</v 0x04E0: 6D 69 64 3E 3C 76 6D 69 64 3E 36 37 3C 2F 76 6D mid><vmid>67</vm 0x04F0: 69 64 3E 3C 76 6D 69 64 3E 37 37 3C 2F 76 6D 69 id><vmid>77</vmi 0x0500: 64 3E 3C 76 6D 69 64 3E 38 37 3C 2F 76 6D 69 64 d><vmid>87</vmid 0x0510: 3E 3C 76 6D 69 64 3E 38 38 3C 2F 76 6D 69 64 3E ><vmid>88</vmid> 0x0520: 3C 76 6D 69 64 3E 39 33 3C 2F 76 6D 69 64 3E 3C <vmid>93</vmid>< 0x0530: 76 6D 69 64 3E 39 38 3C 2F 76 6D 69 64 3E 3C 76 vmid>98</vmid><v 0x0540: 6D 69 64 3E 39 39 3C 2F 76 6D 69 64 3E 3C 76 6D mid>99</vmid><vm 0x0550: 69 64 3E 31 30 30 3C 2F 76 6D 69 64 3E 3C 76 6D id>100</vmid><vm 0x0560: 69 64 3E 31 30 31 3C 2F 76 6D 69 64 3E 3C 76 6D id>101</vmid><vm 0x0570: 69 64 3E 31 30 32 3C 2F 76 6D 69 64 3E 3C 76 6D id>102</vmid><vm 0x0580: 69 64 3E 31 30 33 3C 2F 76 6D 69 64 3E 3C 76 6D id>103</vmid><vm 0x0590: 69 64 3E 31 30 34 3C 2F 76 6D 69 64 3E 3C 76 6D id>104</vmid><vm 0x05A0: 69 64 3E 31 30 35 3C 2F 76 6D 69 64 3E 3C 76 6D id>105</vmid><vm 0x05B0: 69 64 3E 31 30 36 3C 2F 76 6D 69 64 3E 3C 6C 61 id>106</vmid><la 0x05C0: 73 74 48 6F 73 74 42 6F 6F 74 54 69 6D 65 3E 32 stHostBootTime>2 0x05D0: 30 31 38 2D 30 33 2D 31 38 54 31 30 3A 30 35 3A 018-03-18T10:05: 0x05E0: 34 33 2E 30 35 34 34 39 34 5A 3C 2F 6C 61 73 74 43.054494Z</last 0x05F0: 48 6F 73 74 42 6F 6F 74 54 69 6D 65 3E 3C 2F 69 HostBootTime></i 0x0600: 6E 66 6F 3E 3C 2F 52 65 74 72 69 65 76 65 43 68 nfo></RetrieveCh 0x0610: 61 6E 67 65 73 56 70 78 61 5F 54 61 73 6B 3E 0A angesVpxa_Task>. 0x0620: 3C 2F 73 6F 61 70 65 6E 76 3A 42 6F 64 79 3E 0A </soapenv:Body>. 0x0630: 3C 2F 73 6F 61 70 65 6E 76 3A 45 6E 76 65 6C 6F </soapenv:Envelo 0x0640: 70 65 3E BE B9 55 3D 7B FB 4A D2 41 09 58 B7 C9 pe>..U={.J.A.X.. 0x0650: 08 55 D0 B3 A9 EF 0B 00 00 00 00 00 05 63 65 3E .U...........ce> 0x0660: 3C 2F 6D 69 64 3E 3C 6D 69 64 3E 3C 63 6F 75 6E </mid><mid><coun 0x0670: 74 65 72 49 64 3E 31 37 34 3C 2F 63 6F 75 6E 74 terId>174</count 0x0680: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 2A erId><instance>* 0x0690: 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 6D 69 64 </instance></mid 0x06A0: 3E 3C 66 6F 72 6D 61 74 3E 63 73 76 3C 2F 66 6F ><format>csv</fo 0x06B0: 72 6D 61 74 3E 3C 2F 51 75 65 72 79 53 75 6D 6D rmat></QuerySumm 0x06C0: 61 72 79 53 74 61 74 69 73 74 69 63 73 56 70 78 aryStatisticsVpx 0x06D0: 61 3E 0A 3C 2F 73 6F 61 70 65 6E 76 3A 42 6F 64 a>.</soapenv:Bod 0x06E0: 79 3E 0A 3C 2F 73 6F 61 70 65 6E 76 3A 45 6E 76 y>.</soapenv:Env 0x06F0: 65 6C 6F 70 65 3E 38 CE 63 64 FA BC 8E E7 37 46 elope>8.cd....7F 0x0700: 6C 36 59 FD F3 57 F2 CE 2B 7E 00 00 02 69 63 49 l6Y..W..+~...icI 0x0710: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 31 ds><counterId>61 0x0720: 34 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 4</counterId><in 0x0730: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0740: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0750: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0760: 63 6F 75 6E 74 65 72 49 64 3E 36 31 35 3C 2F 63 counterId>615</c 0x0770: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0780: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0790: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x07A0: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun
+
+  
+
+
+**************************** Page 20****************************
+
+  0x07B0: 74 65 72 49 64 3E 36 31 36 3C 2F 63 6F 75 6E 74 terId>616</count 0x07C0: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x07D0: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x07E0: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x07F0: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0800: 64 3E 36 31 37 3C 2F 63 6F 75 6E 74 65 72 49 64 d>617</counterId 0x0810: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0820: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0830: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0840: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 31 ds><counterId>61 0x0850: 38 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 8</counterId><in 0x0860: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0870: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0880: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0890: 63 6F 75 6E 74 65 72 49 64 3E 36 31 39 3C 2F 63 counterId>619</c 0x08A0: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x08B0: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x08C0: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x08D0: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x08E0: 74 65 72 49 64 3E 36 32 30 3C 2F 63 6F 75 6E 74 terId>620</count 0x08F0: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0900: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0910: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0920: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0930: 64 3E 36 30 33 3C 2F 63 6F 75 6E 74 65 72 49 64 d>603</counterId 0x0940: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0950: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0960: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0970: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 32 ds><counterId>62 0x0980: 31 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 1</counterId><in 0x0990: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x09A0: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x09B0: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x09C0: 63 6F 75 6E 74 65 72 49 64 3E 36 32 32 3C 2F 63 counterId>622</c 0x09D0: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x09E0: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x09F0: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0A00: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x0A10: 74 65 72 49 64 3E 36 32 33 3C 2F 63 6F 75 6E 74 terId>623</count 0x0A20: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0A30: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0A40: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0A50: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0A60: 64 3E 36 32 34 3C 2F 63 6F 75 6E 74 65 72 49 64 d>624</counterId 0x0A70: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0A80: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0A90: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0AA0: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 32 ds><counterId>62 0x0AB0: 35 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 5</counterId><in 0x0AC0: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0AD0: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0AE0: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0AF0: 63 6F 75 6E 74 65 72 49 64 3E 36 32 36 3C 2F 63 counterId>626</c 0x0B00: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0B10: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0B20: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0B30: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x0B40: 74 65 72 49 64 3E 36 32 37 3C 2F 63 6F 75 6E 74 terId>627</count 0x0B50: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0B60: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0B70: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0B80: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0B90: 64 3E 36 32 38 3C 2F 63 6F 75 6E 74 65 72 49 64 d>628</counterId 0x0BA0: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins
+
+  
+
+
+**************************** Page 21****************************
+
+  0x0BB0: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0BC0: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0BD0: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 32 ds><counterId>62 0x0BE0: 39 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 9</counterId><in 0x0BF0: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0C00: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0C10: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0C20: 63 6F 75 6E 74 65 72 49 64 3E 36 33 30 3C 2F 63 counterId>630</c 0x0C30: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0C40: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0C50: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0C60: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x0C70: 74 65 72 49 64 3E 36 30 34 3C 2F 63 6F 75 6E 74 terId>604</count 0x0C80: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0C90: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0CA0: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0CB0: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0CC0: 64 3E 36 33 31 3C 2F 63 6F 75 6E 74 65 72 49 64 d>631</counterId 0x0CD0: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0CE0: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0CF0: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0D00: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 33 ds><counterId>63 0x0D10: 32 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 2</counterId><in 0x0D20: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0D30: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0D40: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0D50: 63 6F 75 6E 74 65 72 49 64 3E 36 33 33 3C 2F 63 counterId>633</c 0x0D60: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0D70: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0D80: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0D90: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x0DA0: 74 65 72 49 64 3E 36 33 34 3C 2F 63 6F 75 6E 74 terId>634</count 0x0DB0: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0DC0: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0DD0: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0DE0: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0DF0: 64 3E 36 33 35 3C 2F 63 6F 75 6E 74 65 72 49 64 d>635</counterId 0x0E00: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0E10: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0E20: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0E30: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 33 ds><counterId>63 0x0E40: 36 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 6</counterId><in 0x0E50: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0E60: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0E70: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds>< 0x0E80: 63 6F 75 6E 74 65 72 49 64 3E 36 33 37 3C 2F 63 counterId>637</c 0x0E90: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0EA0: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0EB0: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0EC0: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x0ED0: 74 65 72 49 64 3E 36 33 38 3C 2F 63 6F 75 6E 74 terId>638</count 0x0EE0: 65 72 49 64 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C erId><instance>< 0x0EF0: 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F 76 64 73 4D /instance></vdsM 0x0F00: 65 74 72 69 63 49 64 73 3E 3C 76 64 73 4D 65 74 etricIds><vdsMet 0x0F10: 72 69 63 49 64 73 3E 3C 63 6F 75 6E 74 65 72 49 ricIds><counterI 0x0F20: 64 3E 36 33 39 3C 2F 63 6F 75 6E 74 65 72 49 64 d>639</counterId 0x0F30: 3E 3C 69 6E 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 ><instance></ins 0x0F40: 74 61 6E 63 65 3E 3C 2F 76 64 73 4D 65 74 72 69 tance></vdsMetri 0x0F50: 63 49 64 73 3E 3C 76 64 73 4D 65 74 72 69 63 49 cIds><vdsMetricI 0x0F60: 64 73 3E 3C 63 6F 75 6E 74 65 72 49 64 3E 36 30 ds><counterId>60 0x0F70: 35 3C 2F 63 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 5</counterId><in 0x0F80: 73 74 61 6E 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 stance></instanc 0x0F90: 65 3E 3C 2F 76 64 73 4D 65 74 72 69 63 49 64 73 e></vdsMetricIds 0x0FA0: 3E 3C 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C ><vdsMetricIds><
+
+  
+
+
+**************************** Page 22****************************
+
+  0x0FB0: 63 6F 75 6E 74 65 72 49 64 3E 36 30 36 3C 2F 63 counterId>606</c 0x0FC0: 6F 75 6E 74 65 72 49 64 3E 3C 69 6E 73 74 61 6E ounterId><instan 0x0FD0: 63 65 3E 3C 2F 69 6E 73 74 61 6E 63 65 3E 3C 2F ce></instance></ 0x0FE0: 76 64 73 4D 65 74 72 69 63 49 64 73 3E 3C 76 64 vdsMetricIds><vd 0x0FF0: 73 4D 65 74 72 69 63 49 64 73 3E 3C 63 6F 75 6E sMetricIds><coun 0x1000: 
+
+  74470 (1) - ESXi 5.5 < Build 1881737 OpenSSL Library Multiple Vulnerabilities (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is 5.5 prior to build 1881737. It is, therefore, affected by the following vulnerabilities in the OpenSSL library : 
+
+  - An error exists in the function 'ssl3_read_bytes' that could allow data to be injected into other sessions or allow denial of service attacks. Note this issue is only exploitable if 'SSL_MODE_RELEASE_BUFFERS' is enabled. (CVE-2010-5298) 
+
+  - An error exists in the function 'do_ssl3_write' that could allow a NULL pointer to be dereferenced leading to denial of service attacks. Note this issue is exploitable only if 'SSL_MODE_RELEASE_BUFFERS' is enabled. (CVE-2014-0198) 
+
+  - An unspecified error exists that could allow an attacker to cause usage of weak keying material leading to simplified man-in-the-middle attacks. (CVE-2014-0224) 
+
+  - An unspecified error exists related to anonymous ECDH ciphersuites that could allow denial of service attacks. Note this issue only affects OpenSSL TLS clients. (CVE-2014-3470) 
+
+  See Also 
+
+  http://www.nessus.org/u?33995d5d 
+
+  https://www.openssl.org/news/secadv/20140605.txt 
+
+  Solution 
+
+  Apply patch ESXi550-201406001 for ESXi 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  6.8 (CVSS2#AV:N/AC:M/Au:N/C:P/I:P/A:P) 
+
+  CVSS Temporal Score 
+
+  5.3 (CVSS2#E:POC/RL:OF/RC:C) 
+
+  STIG Severity 
+
+  I 
+
+  References 
+
+  BID 66801 
+
+  BID 67193 
+
+  BID 67898
+
+  
+
+
+**************************** Page 23****************************
+
+  BID 67899 
+
+  CVE-2010-5298 
+
+  CVE-2014-0198 
+
+  CVE-2014-0224 
+
+  CVE-2014-3470 
+
+  XREF OSVDB:105763 
+
+  XREF OSVDB:106531 
+
+  XREF OSVDB:107729 
+
+  XREF OSVDB:107731 
+
+  XREF CERT:978508 
+
+  XREF IAVB:2014-B-0088 
+
+  XREF VMSA:2014-0006 
+
+  Exploitable with 
+
+  Core Impact (true) 
+
+  Plugin Information: 
+
+  Publication date: 2014/06/11, Modification date: 2017/06/12 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 1881737 
+
+  77200 (1) - OpenSSL 'ChangeCipherSpec' MiTM Vulnerability 
+
+  Synopsis 
+
+  The remote host is affected by a vulnerability that could allow sensitive data to be decrypted. 
+
+  Description 
+
+  The OpenSSL service on the remote host is vulnerable to a man-in-the-middle (MiTM) attack, based on its acceptance of a specially crafted handshake. 
+
+  This flaw could allow a MiTM attacker to decrypt or forge SSL messages by telling the service to begin encrypted communications before key material has been exchanged, which causes predictable keys to be used to secure future traffic. 
+
+  Note that Nessus has only tested for an SSL/TLS MiTM vulnerability (CVE-2014-0224). However, Nessus has inferred that the OpenSSL service on the remote host is also affected by six additional vulnerabilities that were disclosed in OpenSSL's June 5th, 2014 security advisory : 
+
+  - An error exists in the 'ssl3_read_bytes' function that permits data to be injected into other sessions or allows denial of service attacks. Note that this issue is exploitable only if SSL_MODE_RELEASE_BUFFERS is enabled. (CVE-2010-5298)
+
+  
+
+
+**************************** Page 24****************************
+
+  - An error exists related to the implementation of the Elliptic Curve Digital Signature Algorithm (ECDSA) that allows nonce disclosure via the 'FLUSH+RELOAD' cache side-channel attack. (CVE-2014-0076) 
+
+  - A buffer overflow error exists related to invalid DTLS fragment handling that permits the execution of arbitrary code or allows denial of service attacks. Note that this issue only affects OpenSSL when used as a DTLS client or server. (CVE-2014-0195) 
+
+  - An error exists in the 'do_ssl3_write' function that permits a NULL pointer to be dereferenced, which could allow denial of service attacks. Note that this issue is exploitable only if SSL_MODE_RELEASE_BUFFERS is enabled. (CVE-2014-0198) 
+
+  - An error exists related to DTLS handshake handling that could allow denial of service attacks. Note that this issue only affects OpenSSL when used as a DTLS client. (CVE-2014-0221) 
+
+  - An error exists in the 'dtls1_get_message_fragment' function related to anonymous ECDH cipher suites. This could allow denial of service attacks. Note that this issue only affects OpenSSL TLS clients. (CVE-2014-3470) 
+
+  OpenSSL did not release individual patches for these vulnerabilities, instead they were all patched under a single version release. Note that the service will remain vulnerable after patching until the service or host is restarted. 
+
+  See Also 
+
+  http://www.nessus.org/u?d5709faa 
+
+  https://www.imperialviolet.org/2014/06/05/earlyccs.html 
+
+  https://www.openssl.org/news/secadv/20140605.txt 
+
+  Solution 
+
+  OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to 0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server) should upgrade to 1.0.1h. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  5.6 (CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L) 
+
+  CVSS Base Score 
+
+  6.8 (CVSS2#AV:N/AC:M/Au:N/C:P/I:P/A:P) 
+
+  CVSS Temporal Score 
+
+  5.9 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 66363 
+
+  BID 66801 
+
+  BID 67193 
+
+  BID 67898 
+
+  BID 67899 
+
+  BID 67900
+
+  
+
+
+**************************** Page 25****************************
+
+  BID 67901 
+
+  CVE-2010-5298 
+
+  CVE-2014-0076 
+
+  CVE-2014-0195 
+
+  CVE-2014-0198 
+
+  CVE-2014-0221 
+
+  CVE-2014-0224 
+
+  CVE-2014-3470 
+
+  XREF OSVDB:104810 
+
+  XREF OSVDB:105763 
+
+  XREF OSVDB:106531 
+
+  XREF OSVDB:107729 
+
+  XREF OSVDB:107730 
+
+  XREF OSVDB:107731 
+
+  XREF OSVDB:107732 
+
+  XREF CERT:978508 
+
+  Exploitable with 
+
+  Core Impact (true) 
+
+  Plugin Information: 
+
+  Publication date: 2014/08/14, Modification date: 2018/02/20 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  The remote service on port 443 accepted an early ChangeCipherSpec message, which caused the MAC and encryption keys to be derived entirely from public information. The entire SSL handshake was completed, with the server accepting and producing messages encrypted and authenticated using these weak keys. 
+
+  78108 (1) - ESXi 5.5 < Build 1980513 glibc Library Multiple Vulnerabilities (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.5 prior to build 1980513. It is, therefore, affected by the following vulnerabilities in the glibc library : 
+
+  - A buffer overflow flaw exists in the 'extend_buffers'
+
+  
+
+
+**************************** Page 26****************************
+
+  function of the 'posix/regexec.c' file, due to not properly validating user input. Using a specially crafted expression, a remote attacker can cause a denial of service. (CVE-2013-0242) 
+
+  - A buffer overflow flaw exists in the 'getaddrinfo' function of the '/sysdeps/posix/getaddrinfo.c' file, due to not properly validating user input. A remote attacker can cause a denial of service by triggering a large number of domain conversions. (CVE-2013-1914) 
+
+  See Also 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000260.html 
+
+  Solution 
+
+  Apply patch ESXi550-201409101-SG for ESXi 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:N/I:N/A:P) 
+
+  CVSS Temporal Score 
+
+  4.1 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  References 
+
+  BID 57638 
+
+  BID 58839 
+
+  CVE-2013-0242 
+
+  CVE-2013-1914 
+
+  XREF OSVDB:89747 
+
+  XREF OSVDB:92038 
+
+  XREF VMSA:2014-0008 
+
+  Plugin Information: 
+
+  Publication date: 2014/10/09, Modification date: 2016/05/09 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 1980513 
+
+  78479 (1) - SSLv3 Padding Oracle On Downgraded Legacy Encryption Vulnerability (POODLE) 
+
+  Synopsis 
+
+  It is possible to obtain sensitive information from the remote host with SSL/TLS-enabled services. 
+
+  Description 
+
+  The remote host is affected by a man-in-the-middle (MitM) information disclosure vulnerability known as POODLE. The vulnerability is due to the way SSL 3.0 handles padding bytes when decrypting messages encrypted using block ciphers in cipher block chaining (CBC) mode. MitM attackers can decrypt a selected byte of a cipher text in as few as 256 tries if they are able to force a victim application to repeatedly send the same data over newly created SSL 3.0 connections.
+
+  
+
+
+**************************** Page 27****************************
+
+  As long as a client and service both support SSLv3, a connection can be 'rolled back' to SSLv3, even if TLSv1 or newer is supported by the client and service. 
+
+  The TLS Fallback SCSV mechanism prevents 'version rollback' attacks without impacting legacy clients; however, it can only protect connections when the client and service support the mechanism. Sites that cannot disable SSLv3 immediately should enable this mechanism. 
+
+  This is a vulnerability in the SSLv3 specification, not in any particular SSL implementation. Disabling SSLv3 is the only way to completely mitigate the vulnerability. 
+
+  See Also 
+
+  https://www.imperialviolet.org/2014/10/14/poodle.html 
+
+  https://www.openssl.org/~bodo/ssl-poodle.pdf 
+
+  https://tools.ietf.org/html/draft-ietf-tls-downgrade-scsv-00 
+
+  Solution 
+
+  Disable SSLv3. 
+
+  Services that must support SSLv3 should enable the TLS Fallback SCSV mechanism until SSLv3 can be disabled. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  4.3 (CVSS2#AV:N/AC:M/Au:N/C:P/I:N/A:N) 
+
+  CVSS Temporal Score 
+
+  3.7 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 70574 
+
+  CVE-2014-3566 
+
+  XREF OSVDB:113251 
+
+  XREF CERT:577193 
+
+  Plugin Information: 
+
+  Publication date: 2014/10/15, Modification date: 2016/11/30 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Nessus determined that the remote server supports SSLv3 with at least one CBC cipher suite, indicating that this server is vulnerable. 
+
+  It appears that TLSv1 or newer is supported on the server. However, the Fallback SCSV mechanism is not supported, allowing connections to be "rolled back" to SSLv3. 
+
+  83781 (1) - ESXi 5.5 < Build 1623387 Multiple Vulnerabilities (remote check) 
+
+  Synopsis
+
+  
+
+
+**************************** Page 28****************************
+
+  The remote VMware ESXi 5.5 host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.5 prior to build 1623387. It is, therefore, affected by multiple vulnerabilities : 
+
+  - Multiple integer overflow conditions exist in the bundled GNU C Library (glibc) due to improper validation of user-supplied input. A remote attacker can exploit these issues to cause a buffer overflow, resulting in a denial of service condition. (CVE-2013-4332) 
+
+  - A flaw exists in the monlist feature in NTP. A remote attacker can exploit this flaw, using a specially crafted packet to load the query function in monlist, to conduct a distributed denial of service attack. (CVE-2013-5211) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0002.html 
+
+  http://www.nessus.org/u?5842205d 
+
+  Solution 
+
+  Apply patch ESXi550-201403101-SG for ESXi 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:N/I:N/A:P) 
+
+  CVSS Temporal Score 
+
+  4.1 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  References 
+
+  BID 62324 
+
+  BID 64692 
+
+  CVE-2013-4332 
+
+  CVE-2013-5211 
+
+  XREF OSVDB:97246 
+
+  XREF OSVDB:97247 
+
+  XREF OSVDB:97248 
+
+  XREF OSVDB:101576 
+
+  XREF CERT:348126 
+
+  XREF VMSA:2014-0002 
+
+  Plugin Information: 
+
+  Publication date: 2015/05/22, Modification date: 2017/06/12 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0)
+
+  
+
+
+**************************** Page 29****************************
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 1623387 
+
+  87674 (1) - VMware ESX / ESXi Multiple Vulnerabilities (VMSA-2014-0002) 
+
+  Synopsis 
+
+  The remote VMware ESX / ESXi host is missing a security-related patch. 
+
+  Description 
+
+  The remote VMware ESX / ESXi host is affected by multiple vulnerabilities : 
+
+  - Multiple integer overflow conditions exist in the glibc package in file malloc/malloc.c. An unauthenticated, remote attacker can exploit these to cause heap memory corruption by passing large values to the pvalloc(), valloc(), posix_memalign(), memalign(), or aligned_alloc() functions, resulting in a denial of service. (CVE-2013-4332) 
+
+  - A distributed denial of service (DDoS) vulnerability exists in the NTP daemon due to improper handling of the 'monlist' command. A remote attacker can exploit this, via a forged request to an affected NTP server, to cause an amplified response to the intended target of the DDoS attack. (CVE-2013-5211) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0002 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000281.html 
+
+  Solution 
+
+  Apply the appropriate patch according to the vendor advisory that pertains to ESX version 4.0 / 4.1 and ESXi version 4.0 / 4.1 / 5.0 / 5.1 / 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:N/I:N/A:P) 
+
+  CVSS Temporal Score 
+
+  4.1 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  References 
+
+  BID 62324 
+
+  BID 64692 
+
+  CVE-2013-4332 
+
+  CVE-2013-5211 
+
+  XREF OSVDB:97246 
+
+  XREF OSVDB:97247 
+
+  XREF OSVDB:97248 
+
+  XREF OSVDB:101576 
+
+  XREF VMSA:2014-0002 
+
+  XREF CERT:348126
+
+  
+
+
+**************************** Page 30****************************
+
+  Plugin Information: 
+
+  Publication date: 2015/12/30, Modification date: 2016/01/06 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Version : ESXi 5.5 Installed build : 1331820 Fixed build : 1623387 
+
+  87677 (1) - VMware ESXi Tools Guest OS Privilege Escalation (VMSA-2014-0005) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is missing a security-related patch. 
+
+  Description 
+
+  The remote VMware ESXi host is affected by a privilege escalation vulnerability due to a NULL pointer dereference flaw in VMware Tools running on Microsoft Windows 8.1. An attacker on an adjacent network can exploit this issue to gain elevated privileges within the guest operating system or else cause the guest operating system to crash. 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0005 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000247.html 
+
+  Solution 
+
+  Apply the appropriate patch according to the vendor advisory that pertains to ESXi version 5.0 / 5.1 / 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.8 (CVSS2#AV:A/AC:L/Au:N/C:P/I:P/A:P) 
+
+  CVSS Temporal Score 
+
+  5.0 (CVSS2#E:ND/RL:OF/RC:C) 
+
+  References 
+
+  BID 67737 
+
+  CVE-2014-3793 
+
+  XREF OSVDB:107561 
+
+  XREF VMSA:2014-0005 
+
+  Plugin Information: 
+
+  Publication date: 2015/12/30, Modification date: 2016/01/06 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Version : ESXi 5.5 Installed build : 1331820 Fixed build : 1623387
+
+  
+
+
+**************************** Page 31****************************
+
+  87678 (1) - VMware ESXi Multiple OpenSSL Vulnerabilities (VMSA-2014-0006) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is missing a security-related patch. 
+
+  Description 
+
+  The remote VMware ESXi host is affected by multiple vulnerabilities in the OpenSSL third-party library : 
+
+  - A use-after-free error exists in the ssl3_read_bytes() function in file ssl/s3_pkt.c that is triggered when a second read is done to the function by multiple threads when SSL_MODE_RELEASE_BUFFERS is enabled. A man-in- the-middle attacker can exploit this to dereference already freed memory and inject arbitrary data into the SSL stream. (CVE-2010-5298) 
+
+  - A NULL pointer dereference flaw exists in the do_ssl3_write() function in file ssl/s3_pkt.c due to a failure to properly manage a buffer pointer during certain recursive calls when SSL_MODE_RELEASE_BUFFERS is enabled. A remote attacker can exploit this, by triggering an alert condition, to cause a denial of service. (CVE-2014-0198) 
+
+  - A flaw exists due to a failure to properly restrict processing of ChangeCipherSpec messages. A man-in-the- middle attacker can exploit this, via a crafted TLS handshake, to force the use of a zero-length master key in certain OpenSSL-to-OpenSSL communications, resulting in the session being hijacked and sensitive information being disclosed. (CVE-2014-0224) 
+
+  - A NULL pointer dereference flaw exists in the ssl3_send_client_key_exchange() function in file s3_clnt.c, when an anonymous ECDH cipher suite is used, that allows a remote attacker to cause a denial of service. (CVE-2014-3470) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0006 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000276.html 
+
+  Solution 
+
+  Apply the appropriate patch according to the vendor advisory that pertains to ESXi version 5.0 / 5.1 / 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  6.8 (CVSS2#AV:N/AC:M/Au:N/C:P/I:P/A:P) 
+
+  CVSS Temporal Score 
+
+  5.3 (CVSS2#E:POC/RL:OF/RC:C) 
+
+  References 
+
+  BID 66801 
+
+  BID 67193 
+
+  BID 67898 
+
+  BID 67899 
+
+  CVE-2010-5298 
+
+  CVE-2014-0198 
+
+  CVE-2014-0224
+
+  
+
+
+**************************** Page 32****************************
+
+  CVE-2014-3470 
+
+  XREF OSVDB:105763 
+
+  XREF OSVDB:106531 
+
+  XREF OSVDB:107729 
+
+  XREF OSVDB:107731 
+
+  XREF VMSA:2014-0006 
+
+  XREF CERT:978508 
+
+  Exploitable with 
+
+  Core Impact (true) 
+
+  Plugin Information: 
+
+  Publication date: 2015/12/30, Modification date: 2016/01/06 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Version : ESXi 5.5 Installed build : 1331820 Fixed build : 1881737 
+
+  87679 (1) - VMware ESXi Multiple DoS (VMSA-2014-0008) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is missing a security-related patch. 
+
+  Description 
+
+  The remote ESXi host is affected by multiple denial of service vulnerabilities in the glibc library : 
+
+  - A buffer overflow condition exists in the extend_buffers() function in file posix/regexec.c due to improper validation of user-supplied input when handling multibyte characters in a regular expression. An unauthenticated, remote attacker can exploit this, via a crafted regular expression, to corrupt the memory, resulting in a denial of service. (CVE-2013-0242) 
+
+  - A stack-based buffer overflow condition exists in the getaddrinfo() function in file posix/getaddrinfo.c due to improper validation of user-supplied input during the handling of domain conversion results. An unauthenticated, remote attacker can exploit this to cause a denial of service by using a crafted host name or IP address that triggers a large number of domain conversion results. (CVE-2013-1914) 
+
+  See Also 
+
+  https://www.vmware.com/security/advisories/VMSA-2014-0008 
+
+  http://lists.vmware.com/pipermail/security-announce/2014/000282.html 
+
+  Solution 
+
+  Apply the appropriate patch according to the vendor advisory that pertains to ESXi version 5.0 / 5.1 / 5.5. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  5.0 (CVSS2#AV:N/AC:L/Au:N/C:N/I:N/A:P)
+
+  
+
+
+**************************** Page 33****************************
+
+  CVSS Temporal Score 
+
+  4.1 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  References 
+
+  BID 57638 
+
+  BID 58839 
+
+  CVE-2013-0242 
+
+  CVE-2013-1914 
+
+  XREF OSVDB:89747 
+
+  XREF OSVDB:92038 
+
+  XREF VMSA:2014-0008 
+
+  Plugin Information: 
+
+  Publication date: 2015/12/30, Modification date: 2016/05/06 
+
+  Hosts 
+
+  10.20.30.23 (tcp/443) 
+
+  Version : ESXi 5.5 Installed build : 1331820 Fixed build : 2068190 
+
+  87942 (1) - ESXi 5.5 < Build 3248547 Shared Folders (HGFS) Guest Privilege Escalation (VMSA- 2016-0001) (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by a guest privilege escalation vulnerability. 
+
+  Description 
+
+  The remote VMware ESXi 5.5 host is prior to build 3248547. It is, therefore, affected by a guest privilege escalation vulnerability in the Shared Folders (HGFS) feature due to improper validation of user-supplied input. A local attacker can exploit this to corrupt memory, resulting in an elevation of privileges. 
+
+  See Also 
+
+  http://www.vmware.com/security/advisories/VMSA-2016-0001.html 
+
+  http://www.nessus.org/u?2d367021 
+
+  http://www.nessus.org/u?5310f417 
+
+  Solution 
+
+  Apply patch ESXi550-201512102-SG according to the vendor advisory. 
+
+  Note that VMware Tools in any Windows-based guests that use the Shared Folders (HGFS) feature must also be updated to completely mitigate the vulnerability. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS Base Score 
+
+  4.6 (CVSS2#AV:L/AC:L/Au:N/C:P/I:P/A:P)
+
+  
+
+
+**************************** Page 34****************************
+
+  CVSS Temporal Score 
+
+  3.4 (CVSS2#E:U/RL:OF/RC:C) 
+
+  STIG Severity 
+
+  II 
+
+  References
+
+  CVE-2015-6933 
+
+  XREF OSVDB:132670 
+
+  XREF VMSA:2016-0001 
+
+  XREF IAVB:2016-B-0015 
+
+  Plugin Information: 
+
+  Publication date: 2016/01/15, Modification date: 2017/06/12 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 3248547 
+
+  92949 (1) - ESXi 5.0 / 5.1 / 5.5 / 6.0 Multiple Vulnerabilities (VMSA-2016-0010) (remote check) 
+
+  Synopsis 
+
+  The remote VMware ESXi host is affected by multiple vulnerabilities. 
+
+  Description 
+
+  The remote VMware ESXi host is version 5.0, 5.1, 5.5, or 6.0 and is missing a security patch. It is, therefore, affected by multiple vulnerabilities : 
+
+  - An arbitrary code execution vulnerability exists in the Shared Folders (HGFS) feature due to improper loading of Dynamic-link library (DLL) files from insecure paths, including the current working directory, which may not be under user control. A remote attacker can exploit this vulnerability, by placing a malicious DLL in the path or by convincing a user into opening a file on a network share, to inject and execute arbitrary code in the context of the current user. (CVE-2016-5330) 
+
+  - An HTTP header injection vulnerability exists due to improper sanitization of user-supplied input. A remote attacker can exploit this to inject arbitrary HTTP headers and conduct HTTP response splitting attacks. (CVE-2016-5331) 
+
+  See Also 
+
+  http://www.vmware.com/security/advisories/VMSA-2016-0010.html 
+
+  http://kb.vmware.com/kb/2142193 
+
+  http://kb.vmware.com/kb/2143976 
+
+  http://kb.vmware.com/kb/2141429 
+
+  http://kb.vmware.com/kb/2144359 
+
+  Solution 
+
+  Apply the appropriate patch as referenced in the vendor advisory.
+
+  
+
+
+**************************** Page 35****************************
+
+  Note that VMware Tools on Windows-based guests that use the Shared Folders (HGFS) feature must also be updated to completely mitigate CVE-2016-5330. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  7.3 (CVSS:3.0/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H) 
+
+  CVSS v3.0 Temporal Score 
+
+  6.7 (CVSS:3.0/E:F/RL:O/RC:X) 
+
+  CVSS Base Score 
+
+  6.9 (CVSS2#AV:L/AC:M/Au:N/C:C/I:C/A:C) 
+
+  CVSS Temporal Score 
+
+  5.7 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  STIG Severity 
+
+  II 
+
+  References 
+
+  BID 92323 
+
+  BID 92324 
+
+  CVE-2016-5330 
+
+  CVE-2016-5331 
+
+  XREF OSVDB:142633 
+
+  XREF OSVDB:142634 
+
+  XREF VMSA:2016-0010 
+
+  XREF IAVB:2016-B-0124 
+
+  XREF IAVB:2016-B-0125 
+
+  XREF IAVB:2016-B-0126 
+
+  XREF IAVB:2016-B-0127 
+
+  Exploitable with 
+
+  Metasploit (true) 
+
+  Plugin Information: 
+
+  Publication date: 2016/08/12, Modification date: 2017/05/05 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : 5.5 Installed build : 1331820 Fixed build : 4179633 / 4179631 (security-only fix) 
+
+  103375 (1) - ESXi 5.5 < Build 6480267 RPC NULL Pointer Dereference Vulnerability (VMSA-2017-0015) (remote check)
+
+  
+
+
+**************************** Page 36****************************
+
+  Synopsis 
+
+  The remote VMware ESXi 5.5 host is affected by an RPC NULL pointer dereference vulnerability. 
+
+  Description 
+
+  The version of the remote VMware ESXi 5.5 host is prior to build 6480267. It is, therefore, affected by a NULL pointer dereference vulnerability related to handling RPC requests that could allow an attacker to crash a virtual machine. 
+
+  See Also 
+
+  http://www.vmware.com/security/advisories/VMSA-2017-0015.html 
+
+  Solution 
+
+  Apply patch ESXi550-201709101-SG according to the vendor advisory. 
+
+  Risk Factor 
+
+  Medium 
+
+  CVSS v3.0 Base Score 
+
+  6.8 (CVSS:3.0/AV:A/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H) 
+
+  CVSS Base Score 
+
+  5.5 (CVSS2#AV:A/AC:L/Au:S/C:N/I:N/A:C) 
+
+  CVSS Temporal Score 
+
+  4.5 (CVSS2#E:F/RL:OF/RC:ND) 
+
+  STIG Severity 
+
+  I 
+
+  References 
+
+  BID 100842 
+
+  CVE-2017-4925 
+
+  XREF OSVDB:165468 
+
+  XREF VMSA:2017-0015 
+
+  XREF IAVB:2017-B-0125 
+
+  Plugin Information: 
+
+  Publication date: 2017/09/21, Modification date: 2017/09/22 
+
+  Hosts 
+
+  10.20.30.23 (tcp/0) 
+
+  ESXi version : ESXi 5.5 Installed build : 1331820 Fixed build : 6480267 
+
+  Remediations 
+
+  [-] Collapse All 
+
+  [+] Expand All 
+
+  Suggested Remediations
+
+  
+
+
+**************************** Page 37****************************
+
+  Taking the following actions across 1 hosts would resolve 15% of the vulnerabilities on the network: 
+
+  Action to take Vulns Hosts
+
+  OpenSSL 'ChangeCipherSpec' MiTM Vulnerability: OpenSSL 0.9.8 SSL/TLS users (client and/or server) should upgrade to 0.9.8za. OpenSSL 1.0.0 SSL/TLS users (client and/or server) should upgrade to 1.0.0m. OpenSSL 1.0.1 SSL/TLS users (client and/or server) should upgrade to 1.0.1h.
+
+  8 1
+
+  This is a report from the Nessus Vulnerability Scanner . 
+
+  -- Security Improvement 2018 -- Internet Engineering & Operation / Security & IT
