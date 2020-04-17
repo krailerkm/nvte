@@ -1,13 +1,53 @@
-#!/usr/bin/python
-# Open a file config
-fileconfig = open("config", "r")
-# Store all config
-dataconfig = fileconfig.readlines()
-# Debug print all file config
-#print dataconfig
-# Set deafult i=0 first
+#!/usr/bin/python 
+#
+##################################################################################################
+#          _____                    _____                _____                    _____          
+#         /\    \                  /\    \              /\    \                  /\    \         
+#        /::\____\                /::\____\            /::\    \                /::\    \        
+#       /::::|   |               /:::/    /            \:::\    \              /::::\    \       
+#      /:::::|   |              /:::/    /              \:::\    \            /::::::\    \      
+#     /::::::|   |             /:::/    /                \:::\    \          /:::/\:::\    \     
+#    /:::/|::|   |            /:::/____/                  \:::\    \        /:::/__\:::\    \    
+#   /:::/ |::|   |            |::|    |                   /::::\    \      /::::\   \:::\    \   
+#  /:::/  |::|   | _____      |::|    |     _____        /::::::\    \    /::::::\   \:::\    \  
+# /:::/   |::|   |/\    \     |::|    |    /\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \ 
+#/:: /    |::|   /::\____\    |::|    |   /::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\
+#\::/    /|::|  /:::/    /    |::|    |  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
+# \/____/ |::| /:::/    /     |::|    | /:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/ 
+#         |::|/:::/    /      |::|____|/:::/    /   /:::/    /            \:::\   \:::\    \     
+#         |::::::/    /       |:::::::::::/    /   /:::/    /              \:::\   \:::\____\    
+#         |:::::/    /        \::::::::::/____/    \::/    /                \:::\   \::/    /    
+#         |::::/    /          ~~~~~~~~~~           \/____/                  \:::\   \/____/     
+#         /:::/    /                                                          \:::\    \         
+#        /:::/    /                                                            \:::\____\        
+#        \::/    /                                                              \::/    /        
+#         \/____/                                                                \/____/         
+#
+# Software developed with Python version 2.7
+# 
+##################################################################################################
+
+from datetime import datetime
+
+try:
+    ## Open a file config
+    fileconfig = open("./etc/config", "r")
+
+    ## Debug print step
+    print str(datetime.now()) + " Successful read config file."
+
+    ## Store all config
+    dataconfig = fileconfig.readlines()
+
+    ## Debug print all file config
+    print str(datetime.now()) + " " + str(dataconfig)
+
+except ValueError:
+    print str(datetime.now()) + "Error read config file."
+
+## Set deafult i=0 first
 i = 0
-# Set default string to open file va
+## Set default string to open file va
 partvaf = str()
 # loop for read all config
 for i in range(len(dataconfig)):
@@ -56,7 +96,7 @@ fout = open('output.csv', 'w')
 # loop for read all config
 for i in range(len(datava)):
     # Debug print all line datava
-    #print datava[i]
+    print datava[i]
     # Tmp space cut
     tmpspace = datava[i][2:].split(" ")
     # Tmp dot cut
