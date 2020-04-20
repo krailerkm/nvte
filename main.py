@@ -1,49 +1,35 @@
-#!/usr/bin/python 
+# Copyright (c) 2020 Krailerk M.
 #
-##################################################################################################
-#          _____                    _____                _____                    _____          
-#         /\    \                  /\    \              /\    \                  /\    \         
-#        /::\____\                /::\____\            /::\    \                /::\    \        
-#       /::::|   |               /:::/    /            \:::\    \              /::::\    \       
-#      /:::::|   |              /:::/    /              \:::\    \            /::::::\    \      
-#     /::::::|   |             /:::/    /                \:::\    \          /:::/\:::\    \     
-#    /:::/|::|   |            /:::/____/                  \:::\    \        /:::/__\:::\    \    
-#   /:::/ |::|   |            |::|    |                   /::::\    \      /::::\   \:::\    \   
-#  /:::/  |::|   | _____      |::|    |     _____        /::::::\    \    /::::::\   \:::\    \  
-# /:::/   |::|   |/\    \     |::|    |    /\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \ 
-#/:: /    |::|   /::\____\    |::|    |   /::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\
-#\::/    /|::|  /:::/    /    |::|    |  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /
-# \/____/ |::| /:::/    /     |::|    | /:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/ 
-#         |::|/:::/    /      |::|____|/:::/    /   /:::/    /            \:::\   \:::\    \     
-#         |::::::/    /       |:::::::::::/    /   /:::/    /              \:::\   \:::\____\    
-#         |:::::/    /        \::::::::::/____/    \::/    /                \:::\   \::/    /    
-#         |::::/    /          ~~~~~~~~~~           \/____/                  \:::\   \/____/     
-#         /:::/    /                                                          \:::\    \         
-#        /:::/    /                                                            \:::\____\        
-#        \::/    /                                                              \::/    /        
-#         \/____/                                                                \/____/         
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# Software developed with Python version 2.7
-# 
-##################################################################################################
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+# implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 from datetime import datetime
 
 try:
     ## Open a file config
-    fileconfig = open("./etc/config", "r")
+    fileconfig = open("etc/config", "r")
 
     ## Debug print step
-    print str(datetime.now()) + " Successful read config file."
+    print(str(datetime.now()) + " Successful read config file.")
 
     ## Store all config
     dataconfig = fileconfig.readlines()
 
     ## Debug print all file config
-    print str(datetime.now()) + " " + str(dataconfig)
+    print(str(datetime.now()) + " " + str(dataconfig))
 
 except ValueError:
-    print str(datetime.now()) + "Error read config file."
+    print(str(datetime.now()) + "Error read config file.")
 
 ## Set deafult i=0 first
 i = 0
@@ -55,8 +41,8 @@ for i in range(len(dataconfig)):
     tmpconffile = dataconfig[i].split("=")
     # Debug print tmpconffile
     #print tmpconffile
-    # Check inputtxtva or not
-    if "inputtxtva" in tmpconffile:
+    # Check inputfile or not
+    if "inputfile" in tmpconffile:
         # Set partvaf to parth in file config
         partvaf = tmpconffile[1]
 # Open file va scan to process
@@ -96,7 +82,7 @@ fout = open('output.csv', 'w')
 # loop for read all config
 for i in range(len(datava)):
     # Debug print all line datava
-    print datava[i]
+    print(datava[i])
     # Tmp space cut
     tmpspace = datava[i][2:].split(" ")
     # Tmp dot cut
@@ -116,17 +102,17 @@ for i in range(len(datava)):
         # Page Count
         pagecount+=1
         # Show status page current
-        print datava[i][pagenum:langedatava-2]
+        print(datava[i][pagenum:langedatava-2])
     # Select Same Vulnerabilities in List
     elif tmpspace[0] in vulnernum and tmpspace[1][:1] == "(":
         # Debug Vulnerabilities in List
         #print datava[i][2:langedatava-2]
         # Debug storesubdata
-        print storesubdata
+        print(storesubdata)
         # Select first runing program
         if storesubdata == list() and storehostipdata == str() and storeriskdata == str() and storevulndata == str():
             # Debug start program
-            print "-*-*-Start Report-*-*-"
+            print("-*-*-Start Report-*-*-")
         else:
             # Set loop for print csv
             loopc = 2
@@ -137,11 +123,11 @@ for i in range(len(datava)):
                 # Write to file
                 fout.write(tmpcsv)
                 # Debug print to csv
-                print tmpcsv
+                print(tmpcsv)
                 # Count loop up
                 loopc += 1
             # Debug save config
-            print "-*-*-Save Config-*-*-"
+            print("-*-*-Save Config-*-*-")
         # Set Risk Count Boolean off
         countrisk = False
         # Set Hosts Count Boolean on
@@ -161,7 +147,7 @@ for i in range(len(datava)):
         # Store data to storevulndata
         storevulndata = datava[i][2:langedatava - 2]
         # Debug Vulnerabilities in storevulndata
-        print storevulndata
+        print(storevulndata)
         # Store to vuln storesubdata
         storesubdata.append(storevulndata)
     # Select Risk Count Boolean on
@@ -175,7 +161,7 @@ for i in range(len(datava)):
         # Store data to storeriskdata
         storeriskdata = datava[i+2][2:langedatava2-2]
         # Debug Risk from storeriskdata
-        print storeriskdata
+        print(storeriskdata)
         # Store Risk to storesubdata
         storesubdata.append(storeriskdata)
     # Select Hosts Count Boolean on
@@ -197,7 +183,7 @@ for i in range(len(datava)):
         # Store ip to store subdata
         storesubdata.append(storehostipdata)
         # Debig Show IP from list
-        print storehostipdata
+        print(storehostipdata)
     # Select Store Vulnerabilities to list
     elif tmpspace[0].isdigit() and (tmpspace[1].isdigit() != True):
         # Debug Vulnerabilities Line
@@ -213,7 +199,7 @@ for i in range(len(datava)):
     # Select End of Report
     elif "This is a report from the Nessus Vulnerability Scanner" in datava[i]:
         # Debug storesubdata
-        print storesubdata
+        print(storesubdata)
         # Set loop for print csv
         loopc = 2
         # Loop for print to csv
@@ -223,14 +209,14 @@ for i in range(len(datava)):
             # Write to file
             fout.write(tmpcsv)
             # Debug print to csv
-            print tmpcsv
+            print(tmpcsv)
             # Count loop up
             loopc += 1
         # Debug save config
-        print "-*-*-Save Config-*-*-"
+        print("-*-*-Save Config-*-*-")
         # Print Show End of Report
-        print "-*-*-End Report-*-*-"
+        print("-*-*-End Report-*-*-")
 # Print Summary
-print "====================== Summary =======================\nPage: " + str(pagecount) +"\nNumber Host Risk: " + str(rhostcount) + "\nVulnerabilities: " + str(numvulner)
+print("====================== Summary =======================\nPage: " + str(pagecount) +"\nNumber Host Risk: " + str(rhostcount) + "\nVulnerabilities: " + str(numvulner))
 # Close file
 fout.close()
