@@ -76,6 +76,23 @@ def dataprocessing(linedata = str()):
         print("Type 9")
         typedata = 9
         outdata = re.findall(r"[pP]age [0-9]", linedata)
+    ## Get Risk Critical
+    elif re.findall(r"^ *[cC]ritical", linedata) != [] :
+        print("Type 10")
+        typedata = 10
+        outdata = re.findall(r"[cC]ritical", linedata)
+    elif re.findall(r"^ *[hH]igh", linedata) != [] :
+        print("Type 11")
+        typedata = 11
+        outdata = re.findall(r"[hH]igh", linedata)
+    elif re.findall(r"^ *[mM]edium", linedata) != [] :
+        print("Type 12")
+        typedata = 12
+        outdata = re.findall(r"[mM]edium", linedata)
+    elif re.findall(r"^ *[lL]ow", linedata) != [] :
+        print("Type 13")
+        typedata = 13
+        outdata = re.findall(r"[lL]ow", linedata)
     ## Other data
     else:
         print("Type 0")
@@ -90,21 +107,60 @@ def listToString(listInPut = list()) :
         outData += ptmp 
     return outData
 
+## CheckFunction
+
 ## Main function for store convert to list for fill in excel
 def storeAllDataToList(datatype = int(), dataout = str()):
     allDataList = list()
     ## Value for check collect Vulnerabilities By Plugin parameter or not
-    collectSwitch = bool()
-    ## Save list of Vulnerabilities By Plugin parameter
+    vulnerabilitiesSwitch = False
+    ## Value for check Risk Factor or not
+    riskFactorSwitch = False
+    ## Value for check Hosts or not
+    hostsSwitch = False
+    ## List of Vulnerabilities By Plugin
+    vulnerabilitiesCase = list()
+    ## List of Risk Factor
+    riskFactorCase = list()
+    ## List of Host
+    hostCase = list()
+    ## Save list of Vulnerabilities By Plugin parameter 2 & 4 toghter
     if datatype == 2:
-        if collectSwitch == False:
-            collectSwitch = True
+        if vulnerabilitiesSwitch == False:
+            vulnerabilitiesSwitch = True
         else:
-            collectSwitch = False
+            vulnerabilitiesSwitch = False
     elif datatype == 4:
-        if collectSwitch == True:
-            
-    #return allDataList
+        if vulnerabilitiesSwitch == True:
+            vulnerabilitiesCase.append(dataout)
+        else:
+            ## Set all value to default
+            riskFactorSwitch = False
+            hostsSwitch = False
+    ## Get Risk Factor
+    elif datatype == 8:
+        if riskFactorSwitch == False:
+            riskFactorSwitch = True
+        else:
+            pass
+    ## Get Host
+    elif datatype == 7:
+        if hostsSwitch == False:
+            hostsSwitch = True
+        else:
+            pass
+    ## Collect Host
+    elif datatype == 6:
+        if hostsSwitch == True:
+            hostCase.append(dataout)
+    elif datatype >= 10 and datatype <= 13:
+        if riskFactorSwitch == True:
+            riskFactorCase.append(dataout)
+        else:
+            pass
+    else:
+        pass
+    return allDataList
 
 ## Parameter for count line of all for show
 countline = 0
