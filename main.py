@@ -12,14 +12,14 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-#
-# NVTE Version 1.0.0 04/22/2020 - 17:30
-#
-#
+
+###############################################################################
+# NVTE version 1.0.1
+###############################################################################
+
 ## Import RegEx Module
 import re
-#
+
 ## Open the configuration file
 f = open("doc/simple.txt")
 ## Print Accessible to the configuration file
@@ -30,7 +30,7 @@ datatmp = f.readlines()
 f.close()
 ## Print Closed to the configuration file
 print("Closed to the configuration file")
-#
+
 ## Function for procressing data line by line
 def dataprocessing(linedata = str()):
     outdata = list()
@@ -145,11 +145,8 @@ def storeAllDataToList(datatmp = list()):
             if vulnerabilitiesSwitch == True:
                 vulnerabilitiesCase.append(dataout)
             else:
-                for vaCase in vulnerabilitiesCase:
-                    if vaCase == dataout:
-                        storeAllData.append(dataout)
-                    else:
-                        pass
+                ############### Version 1.0.0 ISSUE case title not show
+                storeAllData.append(dataout)
         ## Get Risk Factor
         elif datatype == 8:
             if riskFactorSwitch == False:
@@ -181,11 +178,10 @@ def storeAllDataToList(datatmp = list()):
 def listToCSV(datain = list()):
     tmpVaCase = str()
     tmpRisk = str()
-    strForDump = "Issue Title,Risk Level,IP - Service"
+    strForDump = "Issue Title,Risk Level,IP - Service\n"
     for countdatain in datain:
         if countdatain == re.findall(r"[0-9]+ \([0-9]+\) - .*" , countdatain[0]):
             tmpVaCase = countdatain[0]
-            strForDump += "\n"
         elif countdatain == re.findall(r"[cC]ritical", countdatain[0]):
             tmpRisk = countdatain[0]
         elif countdatain == re.findall(r"[hH]igh", countdatain[0]):
@@ -194,9 +190,12 @@ def listToCSV(datain = list()):
             tmpRisk = countdatain[0]
         elif countdatain == re.findall(r"[lL]ow", countdatain[0]):
             tmpRisk = countdatain[0]
-        else:
+        elif countdatain == re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", countdatain[0]):
             strForDump += (tmpVaCase + "," + tmpRisk + "," + countdatain[0] + "\n")
+        else:
+            pass
     return strForDump
+
 
 datalistout = storeAllDataToList(datatmp)
 datastrout = listToCSV(datalistout)

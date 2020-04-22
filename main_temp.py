@@ -14,7 +14,7 @@
 # limitations under the License.
 
 ###############################################################################
-# Source file for version 1.0.1
+# Source file for version 1.0.2
 ###############################################################################
 
 ## Import RegEx Module
@@ -145,11 +145,8 @@ def storeAllDataToList(datatmp = list()):
             if vulnerabilitiesSwitch == True:
                 vulnerabilitiesCase.append(dataout)
             else:
-                for vaCase in vulnerabilitiesCase:
-                    if vaCase == dataout:
-                        storeAllData.append(dataout)
-                    else:
-                        pass
+                ############### Version 1.0.0 ISSUE case title not show
+                storeAllData.append(dataout)
         ## Get Risk Factor
         elif datatype == 8:
             if riskFactorSwitch == False:
@@ -193,9 +190,12 @@ def listToCSV(datain = list()):
             tmpRisk = countdatain[0]
         elif countdatain == re.findall(r"[lL]ow", countdatain[0]):
             tmpRisk = countdatain[0]
-        else:
+        elif countdatain == re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", countdatain[0]):
             strForDump += (tmpVaCase + "," + tmpRisk + "," + countdatain[0] + "\n")
+        else:
+            pass
     return strForDump
+
 
 datalistout = storeAllDataToList(datatmp)
 datastrout = listToCSV(datalistout)
