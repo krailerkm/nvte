@@ -12,211 +12,204 @@
 # implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+#
+# NVTE Version 1.0.0 04/22/2020 - 17:30
+#
+#
+## Import RegEx Module
+import re
+#
+## Open the configuration file
+f = open("doc/simple.txt")
+## Print Accessible to the configuration file
+print("Accessible to the configuration file")
+## Save number of point header config file
+datatmp = f.readlines()
+## Close the configuration file
+f.close()
+## Print Closed to the configuration file
+print("Closed to the configuration file")
+#
+## Function for procressing data line by line
+def dataprocessing(linedata = str()):
+    outdata = list()
+    typedata = int()
+    ## Get Table Of Contents
+    if re.findall(r"[tT]able [oO]f [cC]ontents" , linedata) != [] : 
+        print("Type 1")
+        typedata = 1
+        outdata = re.findall(r"[tT]able [oO]f [cC]ontents" , linedata)
+    ## Get Vulnerabilities By Plugin
+    elif re.findall(r"[vV]ulnerabilities [bB]y [pP]lugin" , linedata) != [] : 
+        print("Type 2")
+        typedata = 2
+        outdata = re.findall(r"[vV]ulnerabilities [bB]y [pP]lugin" , linedata)
+    ## Get Remediations
+    elif re.findall(r"[rR]emediations" , linedata) != [] :
+        print("Type 3")
+        typedata = 3
+        outdata = re.findall(r"[rR]emediations" , linedata)
+    ## Get title cases
+    elif re.findall(r"[0-9]+ \([0-9]+\) - .*" , linedata) != [] :
+        print("Type 4")
+        typedata = 4
+        outdata = re.findall(r"[0-9]+ \([0-9]+\) - .*" , linedata)
+    ## Get NetID address
+    elif re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}", linedata) != [] :
+        print("Type 5")
+        typedata = 5
+        outdata = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}", linedata)
+    ## Get IP address
+    elif re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", linedata) != [] :
+        print("Type 6")
+        typedata = 6
+        outdata = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", linedata)
+    ## Get Host
+    elif re.findall(r"^ *[hH]ost", linedata) != [] :
+        print("Type 7")
+        typedata = 7
+        outdata = re.findall(r"[hH]ost", linedata)
+    ## Get Risk Factor
+    elif re.findall(r"^ *[rR]isk [fF]actor", linedata) != [] :
+        print("Type 8")
+        typedata = 8
+        outdata = re.findall(r"[rR]isk [fF]actor", linedata)
+    ## Get Page
+    elif re.findall(r"[pP]age [0-9]\*+.", linedata) != [] :
+        print("Type 9")
+        typedata = 9
+        outdata = re.findall(r"[pP]age [0-9]", linedata)
+    ## Get Risk Critical
+    elif re.findall(r"^ *[cC]ritical", linedata) != [] :
+        print("Type 10")
+        typedata = 10
+        outdata = re.findall(r"[cC]ritical", linedata)
+    elif re.findall(r"^ *[hH]igh", linedata) != [] :
+        print("Type 11")
+        typedata = 11
+        outdata = re.findall(r"[hH]igh", linedata)
+    elif re.findall(r"^ *[mM]edium", linedata) != [] :
+        print("Type 12")
+        typedata = 12
+        outdata = re.findall(r"[mM]edium", linedata)
+    elif re.findall(r"^ *[lL]ow", linedata) != [] :
+        print("Type 13")
+        typedata = 13
+        outdata = re.findall(r"[lL]ow", linedata)
+    ## Other data
+    else:
+        print("Type 0")
+        typedata = 0
+        ## Add data to outdata and cut space 2 poits
+        outdata.append(linedata[2:])
+    return typedata, outdata 
 
-from datetime import datetime
+def listToString(listInPut = list()) :
+    outData = str()
+    for ptmp in listInPut :
+        outData += ptmp 
+    return outData
 
-try:
-    ## Open a file config
-    fileconfig = open("etc/config", "r")
-
-    ## Debug print step
-    print(str(datetime.now()) + " Successful read config file.")
-
-    ## Store all config
-    dataconfig = fileconfig.readlines()
-
-    ## Debug print all file config
-    print(str(datetime.now()) + " " + str(dataconfig))
-
-except ValueError:
-    print(str(datetime.now()) + "Error read config file.")
-
-## Set deafult i=0 first
-i = 0
-## Set default string to open file va
-partvaf = str()
-# loop for read all config
-for i in range(len(dataconfig)):
-    # Tmp store file config in line
-    tmpconffile = dataconfig[i].split("=")
-    # Debug print tmpconffile
-    #print tmpconffile
-    # Check inputfile or not
-    if "inputfile" in tmpconffile:
-        # Set partvaf to parth in file config
-        partvaf = tmpconffile[1]
-# Open file va scan to process
-fileva = open(partvaf, "r")
-# Store all va file
-datava = fileva.readlines()
-# Debug print all va file
-#print datava
-# Set deafult i=0 first
-i = 0
-# Vulnerabilities List Store
-vulner = list()
-# Vulnerabilities Number List Store
-vulnernum = list()
-# Number of Vulnerabilities
-numvulner = 0
-# Risk Count Boolean
-countrisk = False
-# Hosts Count Boolean
-counthosts = False
-# Count Risk Host
-rhostcount = 0
-# Count Page
-pagecount = 0
-# Store sub data in format
-storesubdata = list()
-# Store sub ip in format
-storehostipdata = str()
-# Store sub data in format
-storehostipdata = str()
-# Vulnerabilities Name
-storevulndata = str()
-# Risk Name
-storeriskdata = str()
-# Start file
-fout = open('output.csv', 'w')
-# loop for read all config
-for i in range(len(datava)):
-    # Debug print all line datava
-    print(datava[i])
-    # Tmp space cut
-    tmpspace = datava[i][2:].split(" ")
-    # Tmp dot cut
-    tmpdot = datava[i][2:].split(".")
-    # Debug Vulnerabilities Number
-    #print tmpspace[0]
-    # Debug Status Risk
-    #print countrisk
-    # Debug Status Hosts
-    #print counthosts
-    # Find lange of string in Line
-    langedatava = len(datava[i])
-    # Set page number
-    pagenum = datava[i].find("Page")
-    # Select show line status page current
-    if pagenum > -1 and datava[i][pagenum-3:pagenum-2] == "*":
-        # Page Count
-        pagecount+=1
-        # Show status page current
-        print(datava[i][pagenum:langedatava-2])
-    # Select Same Vulnerabilities in List
-    elif tmpspace[0] in vulnernum and tmpspace[1][:1] == "(":
-        # Debug Vulnerabilities in List
-        #print datava[i][2:langedatava-2]
-        # Debug storesubdata
-        print(storesubdata)
-        # Select first runing program
-        if storesubdata == list() and storehostipdata == str() and storeriskdata == str() and storevulndata == str():
-            # Debug start program
-            print("-*-*-Start Report-*-*-")
+## Main function for store convert to list for fill in excel
+def storeAllDataToList(datatmp = list()):
+    ## Value for check collect Vulnerabilities By Plugin parameter or not
+    vulnerabilitiesSwitch = False
+    ## Value for check Risk Factor or not
+    riskFactorSwitch = False
+    ## Value for check Hosts or not
+    hostsSwitch = False
+    ## List of Vulnerabilities By Plugin
+    vulnerabilitiesCase = list()
+    ## List of Risk Factor
+    #riskFactorCase = list()
+    ## List of Host
+    #hostCase = list()
+    ## All Data
+    storeAllData = list()
+    ## Loop for check all data
+    for linedata in datatmp:
+        ## Save return out
+        outputall = dataprocessing(linedata)
+        ## Get type return
+        datatype = outputall[0]
+        ## Get data return
+        dataout = outputall[1]
+        ## Save list of Vulnerabilities By Plugin parameter 2 & 4 toghter
+        if datatype == 2:
+            if vulnerabilitiesSwitch == False:
+                vulnerabilitiesSwitch = True
+            else:
+                vulnerabilitiesSwitch = False
+        elif datatype == 4:
+            if vulnerabilitiesSwitch == True:
+                vulnerabilitiesCase.append(dataout)
+            else:
+                for vaCase in vulnerabilitiesCase:
+                    if vaCase == dataout:
+                        storeAllData.append(dataout)
+                    else:
+                        pass
+        ## Get Risk Factor
+        elif datatype == 8:
+            if riskFactorSwitch == False:
+                riskFactorSwitch = True
+            else:
+                pass
+        ## Get Host
+        elif datatype == 7:
+            if hostsSwitch == False:
+                hostsSwitch = True
+            else:
+                pass
+        ## Collect Host
+        elif datatype == 6:
+            if hostsSwitch == True:
+                #hostCase.append(dataout)
+                storeAllData.append(dataout)
+        elif datatype >= 10 and datatype <= 13:
+            if riskFactorSwitch == True:
+                #riskFactorCase.append(dataout)
+                storeAllData.append(dataout)
+            else:
+                pass
         else:
-            # Set loop for print csv
-            loopc = 2
-            # Loop for print to csv
-            while loopc < len(storesubdata):
-                # Tmp save data to csv
-                tmpcsv = storesubdata[0] + "," + storesubdata[1] + "," + storesubdata[loopc] + "\n"
-                # Write to file
-                fout.write(tmpcsv)
-                # Debug print to csv
-                print(tmpcsv)
-                # Count loop up
-                loopc += 1
-            # Debug save config
-            print("-*-*-Save Config-*-*-")
-        # Set Risk Count Boolean off
-        countrisk = False
-        # Set Hosts Count Boolean on
-        counthosts = False
-        # Clear store sub data in format
-        storesubdata = list()
-        # Store all data in format
-        storealldata = list()
-        # Store sub data in format
-        storesubdata = list()
-        # Store sub data in format
-        storehostipdata = str()
-        # Vulnerabilities Name
-        storevulndata = str()
-        # Risk Name
-        storeriskdata = str()
-        # Store data to storevulndata
-        storevulndata = datava[i][2:langedatava - 2]
-        # Debug Vulnerabilities in storevulndata
-        print(storevulndata)
-        # Store to vuln storesubdata
-        storesubdata.append(storevulndata)
-    # Select Risk Count Boolean on
-    elif "Risk Factor" in datava[i]:
-        # Set Risk Count Boolean on
-        countrisk = True
-        # Find lange of string 2 in Line
-        langedatava2 = len(datava[i+2])
-        # Debug Risk
-        #print datava[i+2][2:langedatava2-2]
-        # Store data to storeriskdata
-        storeriskdata = datava[i+2][2:langedatava2-2]
-        # Debug Risk from storeriskdata
-        print(storeriskdata)
-        # Store Risk to storesubdata
-        storesubdata.append(storeriskdata)
-    # Select Hosts Count Boolean on
-    elif "Hosts" in datava[i]:
-        # Set Hosts Count Boolean on
-        counthosts = True
-        # Find lange of string 2 in Line
-        #langedatava2 = len(datava[i+2])
-        # Debug Hosts
-        #print datava[i+2][2:langedatava2-2]
-    # Select IP Host from on line string
-    elif (counthosts == True) and (datava[i].count(".") == 3) and tmpdot[0].isdigit() and tmpdot[1].isdigit() and tmpdot[2].isdigit():
-        # Count rhostcount
-        rhostcount+=1
-        # Debig Show IP
-        #print tmpspace[0]
-        # Store data to storesubdata
-        storehostipdata = datava[i][2:langedatava-2]
-        # Store ip to store subdata
-        storesubdata.append(storehostipdata)
-        # Debig Show IP from list
-        print(storehostipdata)
-    # Select Store Vulnerabilities to list
-    elif tmpspace[0].isdigit() and (tmpspace[1].isdigit() != True):
-        # Debug Vulnerabilities Line
-        #print datava[i][2:langedatava-2]
-        # Store Vulnerabilities to List
-        vulner.append(datava[i][2:langedatava-2])
-        # Store Vulnerabilities Number to List
-        vulnernum.append(tmpspace[0])
-        # Debug Vulnerabilities Store Line
-        #print vulner[numvulner]
-        # Count Vulnerabilities Number
-        numvulner+=1
-    # Select End of Report
-    elif "This is a report from the Nessus Vulnerability Scanner" in datava[i]:
-        # Debug storesubdata
-        print(storesubdata)
-        # Set loop for print csv
-        loopc = 2
-        # Loop for print to csv
-        while loopc < len(storesubdata):
-            # Tmp save data to csv
-            tmpcsv = storesubdata[0] + "," + storesubdata[1] + "," + storesubdata[loopc] + "\n"
-            # Write to file
-            fout.write(tmpcsv)
-            # Debug print to csv
-            print(tmpcsv)
-            # Count loop up
-            loopc += 1
-        # Debug save config
-        print("-*-*-Save Config-*-*-")
-        # Print Show End of Report
-        print("-*-*-End Report-*-*-")
-# Print Summary
-print("====================== Summary =======================\nPage: " + str(pagecount) +"\nNumber Host Risk: " + str(rhostcount) + "\nVulnerabilities: " + str(numvulner))
-# Close file
-fout.close()
+            pass
+    return storeAllData
+
+## Function all tring to string for write csv
+def listToCSV(datain = list()):
+    tmpVaCase = str()
+    tmpRisk = str()
+    strForDump = "Issue Title,Risk Level,IP - Service"
+    for countdatain in datain:
+        if countdatain == re.findall(r"[0-9]+ \([0-9]+\) - .*" , countdatain[0]):
+            tmpVaCase = countdatain[0]
+            strForDump += "\n"
+        elif countdatain == re.findall(r"[cC]ritical", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[hH]igh", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[mM]edium", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[lL]ow", countdatain[0]):
+            tmpRisk = countdatain[0]
+        else:
+            strForDump += (tmpVaCase + "," + tmpRisk + "," + countdatain[0] + "\n")
+    return strForDump
+
+datalistout = storeAllDataToList(datatmp)
+datastrout = listToCSV(datalistout)
+
+## Open the configuration file out
+fo = open("doc/out.csv","w")
+## Print Accessible to the configuration file out
+print("Accessible and create file out")
+## Write file file out
+fo.write(datastrout)
+## Print Write file
+print("Write file out")
+## Close the configuration file out
+fo.close()
+## Print Closed to the configuration file out
+print("Closed file out")

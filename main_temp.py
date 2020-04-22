@@ -13,11 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+###############################################################################
+# Source file for version 1.0.1
+###############################################################################
+
 ## Import RegEx Module
 import re
 
 ## Open the configuration file
-f = open("doc/hello.txt")
+f = open("doc/simple.txt")
 ## Print Accessible to the configuration file
 print("Accessible to the configuration file")
 ## Save number of point header config file
@@ -107,11 +111,8 @@ def listToString(listInPut = list()) :
         outData += ptmp 
     return outData
 
-## CheckFunction
-
 ## Main function for store convert to list for fill in excel
-def storeAllDataToList(datatype = int(), dataout = str()):
-    allDataList = list()
+def storeAllDataToList(datatmp = list()):
     ## Value for check collect Vulnerabilities By Plugin parameter or not
     vulnerabilitiesSwitch = False
     ## Value for check Risk Factor or not
@@ -121,61 +122,93 @@ def storeAllDataToList(datatype = int(), dataout = str()):
     ## List of Vulnerabilities By Plugin
     vulnerabilitiesCase = list()
     ## List of Risk Factor
-    riskFactorCase = list()
+    #riskFactorCase = list()
     ## List of Host
-    hostCase = list()
-    ## Save list of Vulnerabilities By Plugin parameter 2 & 4 toghter
-    if datatype == 2:
-        if vulnerabilitiesSwitch == False:
-            vulnerabilitiesSwitch = True
-        else:
-            vulnerabilitiesSwitch = False
-    elif datatype == 4:
-        if vulnerabilitiesSwitch == True:
-            vulnerabilitiesCase.append(dataout)
-        else:
-            ## Set all value to default
-            riskFactorSwitch = False
-            hostsSwitch = False
-    ## Get Risk Factor
-    elif datatype == 8:
-        if riskFactorSwitch == False:
-            riskFactorSwitch = True
+    #hostCase = list()
+    ## All Data
+    storeAllData = list()
+    ## Loop for check all data
+    for linedata in datatmp:
+        ## Save return out
+        outputall = dataprocessing(linedata)
+        ## Get type return
+        datatype = outputall[0]
+        ## Get data return
+        dataout = outputall[1]
+        ## Save list of Vulnerabilities By Plugin parameter 2 & 4 toghter
+        if datatype == 2:
+            if vulnerabilitiesSwitch == False:
+                vulnerabilitiesSwitch = True
+            else:
+                vulnerabilitiesSwitch = False
+        elif datatype == 4:
+            if vulnerabilitiesSwitch == True:
+                vulnerabilitiesCase.append(dataout)
+            else:
+                for vaCase in vulnerabilitiesCase:
+                    if vaCase == dataout:
+                        storeAllData.append(dataout)
+                    else:
+                        pass
+        ## Get Risk Factor
+        elif datatype == 8:
+            if riskFactorSwitch == False:
+                riskFactorSwitch = True
+            else:
+                pass
+        ## Get Host
+        elif datatype == 7:
+            if hostsSwitch == False:
+                hostsSwitch = True
+            else:
+                pass
+        ## Collect Host
+        elif datatype == 6:
+            if hostsSwitch == True:
+                #hostCase.append(dataout)
+                storeAllData.append(dataout)
+        elif datatype >= 10 and datatype <= 13:
+            if riskFactorSwitch == True:
+                #riskFactorCase.append(dataout)
+                storeAllData.append(dataout)
+            else:
+                pass
         else:
             pass
-    ## Get Host
-    elif datatype == 7:
-        if hostsSwitch == False:
-            hostsSwitch = True
+    return storeAllData
+
+## Function all tring to string for write csv
+def listToCSV(datain = list()):
+    tmpVaCase = str()
+    tmpRisk = str()
+    strForDump = "Issue Title,Risk Level,IP - Service\n"
+    for countdatain in datain:
+        if countdatain == re.findall(r"[0-9]+ \([0-9]+\) - .*" , countdatain[0]):
+            tmpVaCase = countdatain[0]
+        elif countdatain == re.findall(r"[cC]ritical", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[hH]igh", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[mM]edium", countdatain[0]):
+            tmpRisk = countdatain[0]
+        elif countdatain == re.findall(r"[lL]ow", countdatain[0]):
+            tmpRisk = countdatain[0]
         else:
-            pass
-    ## Collect Host
-    elif datatype == 6:
-        if hostsSwitch == True:
-            hostCase.append(dataout)
-    elif datatype >= 10 and datatype <= 13:
-        if riskFactorSwitch == True:
-            riskFactorCase.append(dataout)
-        else:
-            pass
-    else:
-        pass
-    return allDataList
+            strForDump += (tmpVaCase + "," + tmpRisk + "," + countdatain[0] + "\n")
+    return strForDump
 
-## Parameter for count line of all for show
-countline = 0
+datalistout = storeAllDataToList(datatmp)
+datastrout = listToCSV(datalistout)
 
-## Loop for check all data
-for linedata in datatmp:
-    ## Count lines
-    countline +=  1
-    ## Print count lines
-    print(countline)
-    ## Save return out
-    outputall = dataprocessing(linedata)
-    ## Get type return
-    outputdatatype = outputall[0]
-    ## Get data return
-    outputdata = outputall[1]
-
-    print(storeAllDataToList(outputdatatype, outputdata))
+## Open the configuration file out
+fo = open("doc/out.csv","w")
+## Print Accessible to the configuration file out
+print("Accessible and create file out")
+## Write file file out
+fo.write(datastrout)
+## Print Write file
+print("Write file out")
+## Close the configuration file out
+fo.close()
+## Print Closed to the configuration file out
+print("Closed file out")
