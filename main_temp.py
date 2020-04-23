@@ -147,6 +147,9 @@ def storeAllDataToList(datatmp = list()):
             else:
                 ############### Version 1.0.0 ISSUE case title not show
                 storeAllData.append(dataout)
+                ############### Version 1.0.1 ISSUE Notcorrect
+                riskFactorSwitch = False
+                hostsSwitch = False
         ## Get Risk Factor
         elif datatype == 8:
             if riskFactorSwitch == False:
