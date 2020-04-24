@@ -1,14 +1,15 @@
-# Change Nessus Report from TXT to CSV
+![](images/nvte_logo_os_sm.png)
 
-Abstract.
+# NVTE
+NVTE is a program for converting system scan data from Nessus txt files into a csv case summary.
 
-## Installation
 
-Pre-Software Request
+## Quickstart
+Just copy all the files from this GitHub to the file location used for the web service you use.
 
+CentOS 7
 ```
-Microsoft Windows
-Python 2.7
+git clone https://github.com/krailerkm/nvte
 ```
 
 ## Contributing
@@ -17,4 +18,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[Unlicense](https://unlicense.org)
+[Apache License 2.0](http://www.apache.org/licenses/)
