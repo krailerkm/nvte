@@ -14,7 +14,7 @@
 # limitations under the License.
 
 ###############################################################################
-# Source file for version 1.0.2
+# BETA NVTE version 1.0.2
 ###############################################################################
 
 ## Import RegEx Module
@@ -37,69 +37,71 @@ def dataprocessing(linedata = str()):
     typedata = int()
     ## Get Table Of Contents
     if re.findall(r"[tT]able [oO]f [cC]ontents" , linedata) != [] : 
-        print("Type 1")
+        #print("Type 1")
         typedata = 1
         outdata = re.findall(r"[tT]able [oO]f [cC]ontents" , linedata)
     ## Get Vulnerabilities By Plugin
     elif re.findall(r"[vV]ulnerabilities [bB]y [pP]lugin" , linedata) != [] : 
-        print("Type 2")
+        #print("Type 2")
         typedata = 2
         outdata = re.findall(r"[vV]ulnerabilities [bB]y [pP]lugin" , linedata)
     ## Get Remediations
     elif re.findall(r"[rR]emediations" , linedata) != [] :
-        print("Type 3")
+        #print("Type 3")
         typedata = 3
         outdata = re.findall(r"[rR]emediations" , linedata)
     ## Get title cases
     elif re.findall(r"[0-9]+ \([0-9]+\) - .*" , linedata) != [] :
-        print("Type 4")
+        #print("Type 4")
         typedata = 4
         outdata = re.findall(r"[0-9]+ \([0-9]+\) - .*" , linedata)
     ## Get NetID address
     elif re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}", linedata) != [] :
-        print("Type 5")
+        #print("Type 5")
         typedata = 5
         outdata = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}", linedata)
     ## Get IP address
     elif re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", linedata) != [] :
-        print("Type 6")
+        #print("Type 6")
         typedata = 6
         outdata = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} \(.*\)", linedata)
     ## Get Host
     elif re.findall(r"^ *[hH]ost", linedata) != [] :
-        print("Type 7")
+        #print("Type 7")
         typedata = 7
         outdata = re.findall(r"[hH]ost", linedata)
     ## Get Risk Factor
     elif re.findall(r"^ *[rR]isk [fF]actor", linedata) != [] :
-        print("Type 8")
+        #print("Type 8")
         typedata = 8
         outdata = re.findall(r"[rR]isk [fF]actor", linedata)
     ## Get Page
     elif re.findall(r"[pP]age [0-9]\*+.", linedata) != [] :
-        print("Type 9")
+        #print("Type 9")
         typedata = 9
         outdata = re.findall(r"[pP]age [0-9]", linedata)
+    ## Issue 1.0.1 04-24-2020-1647
+    ## Rsik part type have issue detect all of word in data on only rsik, Type 10-13 have ploblem
     ## Get Risk Critical
     elif re.findall(r"^ *[cC]ritical", linedata) != [] :
-        print("Type 10")
+        #print("Type 10")
         typedata = 10
         outdata = re.findall(r"[cC]ritical", linedata)
     elif re.findall(r"^ *[hH]igh", linedata) != [] :
-        print("Type 11")
+        #print("Type 11")
         typedata = 11
         outdata = re.findall(r"[hH]igh", linedata)
     elif re.findall(r"^ *[mM]edium", linedata) != [] :
-        print("Type 12")
+        #print("Type 12")
         typedata = 12
         outdata = re.findall(r"[mM]edium", linedata)
     elif re.findall(r"^ *[lL]ow", linedata) != [] :
-        print("Type 13")
+        #print("Type 13")
         typedata = 13
         outdata = re.findall(r"[lL]ow", linedata)
     ## Other data
     else:
-        print("Type 0")
+        #print("Type 0")
         typedata = 0
         ## Add data to outdata and cut space 2 poits
         outdata.append(linedata[2:])
@@ -131,6 +133,9 @@ def storeAllDataToList(datatmp = list()):
     for linedata in datatmp:
         ## Save return out
         outputall = dataprocessing(linedata)
+        ## Print Show Data
+        print("Raw Data : ",linedata[:-2])
+        print("Process Data : ",outputall)
         ## Get type return
         datatype = outputall[0]
         ## Get data return
@@ -164,17 +169,33 @@ def storeAllDataToList(datatmp = list()):
                 pass
         ## Collect Host
         elif datatype == 6:
+            ## Some time they didn't show host on page
+            ## Bypass host shwitch
             if hostsSwitch == True:
                 #hostCase.append(dataout)
+                #storeAllData.append(dataout)
+                pass
+            else:
+                # Keep all data IP
                 storeAllData.append(dataout)
         elif datatype >= 10 and datatype <= 13:
             if riskFactorSwitch == True:
                 #riskFactorCase.append(dataout)
                 storeAllData.append(dataout)
+                ## Fix issue version 1.0.1 04-24-2020-1644
+                ## riskFactorSwitch open after collocation risk, We have one risk not many
+                riskFactorSwitch = False
             else:
                 pass
         else:
             pass
+        ## Print Out Switch
+        print("vulnerabilitiesSwitch : ",vulnerabilitiesSwitch)
+        print("riskFactorSwitch : ",riskFactorSwitch)
+        print("hostsSwitch : ",hostsSwitch)
+        #print("vulnerabilitiesCase : ",vulnerabilitiesCase)
+        #print("storeAllData : ",storeAllData)
+        #print("************************************************************************************************")
     return storeAllData
 
 ## Function all tring to string for write csv
