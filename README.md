@@ -7,7 +7,7 @@ NVTE is a program for converting system scan data from Nessus txt files into a c
 ## Quickstart
 Just copy all the files from this GitHub to the file location used for the web service you use.
 
-CentOS 7
+Any OS
 ```
 git clone https://github.com/krailerkm/nvte
 ```
