@@ -14,22 +14,15 @@
 # limitations under the License.
 
 ###############################################################################
-# BETA NVTE version 1.0.2
+# BETA NVTE version 1.0.3
 ###############################################################################
 
 ## Import RegEx Module
 import re
-
-## Open the configuration file
-f = open("doc/simple.txt")
-## Print Accessible to the configuration file
-print("Accessible to the configuration file")
-## Save number of point header config file
-datatmp = f.readlines()
-## Close the configuration file
-f.close()
-## Print Closed to the configuration file
-print("Closed to the configuration file")
+## Import Logging Module 10.0.3
+import logging
+logging.basicConfig(format='%(asctime)s : %(message)s', \
+                    level = logging.DEBUG)
 
 ## Function for procressing data line by line
 def dataprocessing(linedata = str()):
@@ -134,8 +127,8 @@ def storeAllDataToList(datatmp = list()):
         ## Save return out
         outputall = dataprocessing(linedata)
         ## Print Show Data
-        print("Raw Data : ",linedata[:-2])
-        print("Process Data : ",outputall)
+        #print("Raw Data : ",linedata[:-2])
+        #print("Process Data : ",outputall)
         ## Get type return
         datatype = outputall[0]
         ## Get data return
@@ -173,7 +166,7 @@ def storeAllDataToList(datatmp = list()):
             ## Bypass host shwitch
             if hostsSwitch == True:
                 #hostCase.append(dataout)
-                #storeAllData.append(dataout)
+                storeAllData.append(dataout)
                 pass
             else:
                 # Keep all data IP
@@ -190,9 +183,9 @@ def storeAllDataToList(datatmp = list()):
         else:
             pass
         ## Print Out Switch
-        print("vulnerabilitiesSwitch : ",vulnerabilitiesSwitch)
-        print("riskFactorSwitch : ",riskFactorSwitch)
-        print("hostsSwitch : ",hostsSwitch)
+        #print("vulnerabilitiesSwitch : ",vulnerabilitiesSwitch)
+        #print("riskFactorSwitch : ",riskFactorSwitch)
+        #print("hostsSwitch : ",hostsSwitch)
         #print("vulnerabilitiesCase : ",vulnerabilitiesCase)
         #print("storeAllData : ",storeAllData)
         #print("************************************************************************************************")
@@ -220,19 +213,42 @@ def listToCSV(datain = list()):
             pass
     return strForDump
 
+## Main function created in 1.0.3 Version
+def main():
+    ## Open the input file
+    f = open("doc/simple.txt")
+    logging.debug("Accessible to the input file")
+    ## Print Accessible to the input file
+    #print("Accessible to the input file")
+    ## Save number of point header config file
+    datatmp = f.readlines()
+    logging.debug("Readlines to the input file")
+    ## Close the input file
+    f.close()
+    logging.debug("Close to the input file")
+    ## Print Closed to the input file
+    #print("Closed to the input file")
 
-datalistout = storeAllDataToList(datatmp)
-datastrout = listToCSV(datalistout)
+    datalistout = storeAllDataToList(datatmp)
+    logging.debug("List Data out from storeAllDataToList")
+    datastrout = listToCSV(datalistout)
+    logging.debug("Convert List Data out to CSV")
 
-## Open the configuration file out
-fo = open("doc/out.csv","w")
-## Print Accessible to the configuration file out
-print("Accessible and create file out")
-## Write file file out
-fo.write(datastrout)
-## Print Write file
-print("Write file out")
-## Close the configuration file out
-fo.close()
-## Print Closed to the configuration file out
-print("Closed file out")
+    ## Open the output file out
+    fo = open("doc/out.csv","w")
+    logging.debug("Accessible and create file out")
+    ## Print Accessible to the output file out
+    #print("Accessible and create file out")
+    ## Write file file out
+    fo.write(datastrout)
+    logging.debug("Write file out")
+    ## Print Write file
+    #print("Write file out")
+    ## Close the output file out
+    fo.close()
+    logging.debug("Closed file out")
+    ## Print Closed to the output file out
+    #print("Closed file out")
+
+## Start main function
+main()
