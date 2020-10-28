@@ -21,7 +21,7 @@
 import re
 
 ## Open the configuration file
-f = open("doc/hello.txt")
+f = open("doc/simple.txt")
 ## Print Accessible to the configuration file
 print("Accessible to the configuration file")
 ## Save number of point header config file
